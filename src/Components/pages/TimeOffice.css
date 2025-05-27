@@ -91,7 +91,6 @@ body, html {
 /* --- Main content background --- */
 .timeoffice-bg {
   width: 100vw;
-  margin-top: -80px;
   min-height: 100vh;
   position: relative;
   z-index: 0;
