@@ -91,7 +91,7 @@ body, html {
 /* --- Main content background --- */
 .timeoffice-bg {
   width: 100vw;
-  margin-top: -50px;
+  margin-top: -80px;
   min-height: 100vh;
   position: relative;
   z-index: 0;
@@ -390,37 +390,6 @@ body, html {
   position: relative;
 }
 
-.late-early-box, .overtime-detail-box {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  background: #dde2ee;
-  border: 2px solid #6367a8;
-  border-radius: 1rem;
-  box-shadow: 0 4px 18px #b8bfd3bb;
-  padding: 2.1rem 2rem 1.7rem 2.2rem;
-  max-width: 950px;
-  min-width: 350px;
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-right: auto;
-  position: relative;
-  overflow: visible;
-  z-index: 2;
-  transition: box-shadow 0.3s, border-color 0.23s, background 0.25s;
-}
-
-.late-early-box {
-  margin-top: 0.2rem;
-}
-.overtime-detail-box {
-  margin-top: 2.5rem;
-  margin-left: auto;
-  margin-right: 0;
-  flex-direction: row-reverse;
-}
-
 .late-early-content, .overtime-content {
   flex: 2;
   display: flex;
@@ -482,12 +451,6 @@ body, html {
 }
 
 @media (max-width: 1100px) {
-  .late-early-box, .overtime-detail-box {
-    max-width: 99vw;
-    padding: 1.2rem 0.6rem 1.2rem 0.8rem;
-    flex-direction: column;
-    align-items: flex-start;
-  }
   .late-early-image, .overtime-image {
     margin: 1.5rem 0 0 0;
     min-width: 130px;
@@ -504,14 +467,6 @@ body, html {
   .timeoffice-lateovertime-section {
     gap: 1.3rem;
     margin-top: 2.2rem;
-  }
-  .late-early-box, .overtime-detail-box {
-    max-width: 99vw;
-    min-width: unset;
-    padding: 0.7rem 0.3rem 1.2rem 0.4rem;
-    flex-direction: column;
-    align-items: flex-start;
-    border-radius: 0.7rem;
   }
   .late-early-title, .overtime-title {
     font-size: 1.09rem;
@@ -820,17 +775,6 @@ body, html {
 }
 
 /* Integration with Payroll */
-.integration-payroll-row {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto 0 0;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 3rem;
-  position: relative;
-}
-
 .integration-payroll-card {
   flex: 2;
   background: #dde2ee;
@@ -892,16 +836,6 @@ body, html {
 }
 
 /* Reporting and Compliance */
-.reporting-compliance-row {
-  width: 100%;
-  max-width: 1200px;
-  margin: 2.5rem 0 0 auto;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: flex-start;
-  gap: 3rem;
-  position: relative;
-}
 .reporting-compliance-card {
   flex: 2;
   background: #dde2ee;
@@ -966,12 +900,6 @@ body, html {
   .timeoffice-integration-compliance-section {
     gap: 2rem;
   }
-  .integration-payroll-row,
-  .reporting-compliance-row {
-    flex-direction: column;
-    gap: 1.2rem;
-    max-width: 99vw;
-  }
   .integration-payroll-card,
   .reporting-compliance-card {
     max-width: 99vw;
@@ -990,12 +918,6 @@ body, html {
 }
 
 @media (max-width: 700px) {
-  .integration-payroll-row,
-  .reporting-compliance-row {
-    flex-direction: column;
-    gap: 0.7rem;
-    max-width: 99vw;
-  }
   .integration-payroll-card,
   .reporting-compliance-card {
     max-width: 99vw;
@@ -1012,5 +934,155 @@ body, html {
   .reporting-compliance-img {
     width: 75px;
     height: 50px;
+  }
+}
+
+/* --- UNIFORM FLEX ROW FOR ALL INFO+IMAGE SECTIONS --- */
+.to-flex-row {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 2.2rem;
+  margin-top: 2.7rem;
+  margin-bottom: 0;
+  max-width: 950px;
+  min-width: 350px;
+  background: none;
+  position: relative;
+  z-index: 2;
+}
+.to-flex-row.reverse {
+  flex-direction: row-reverse;
+}
+.to-text-card1 {
+  flex: 2;
+  margin-left: 30px;
+  background: #dde2ee;
+  border: 2px solid #6367a8;
+  border-radius: 1rem;
+  box-shadow: 0 4px 18px #b8bfd3bb;
+  padding: 2.1rem 2rem 1.7rem 2.2rem;
+  min-width: 500px;
+  max-width: 500px;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.to-text-card2 {
+  margin-left: 450px;
+  background: #dde2ee;
+  border: 2px solid #6367a8;
+  border-radius: 1rem;
+  box-shadow: 0 4px 18px #b8bfd3bb;
+  padding: 2.1rem 2rem 1.7rem 2.2rem;
+  min-width: 500px;
+  max-width: 500px;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.to-title {
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: #232277;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  margin-bottom: 0.9rem;
+  margin-top: 0;
+  letter-spacing: 0.01em;
+}
+.to-list {
+  font-size: 1.03rem;
+  color: #162048;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  font-weight: 500;
+  line-height: 1.43;
+}
+.to-list ul {
+  margin: 0.1em 0 0.5em 1.2em;
+  padding: 0;
+  list-style-type: disc;
+}
+.to-list b {
+  color: #222a7b;
+  font-size: 1.07em;
+  font-weight: bold;
+  margin-top: 0.9em;
+  display: block;
+}
+.to-img-col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  max-width: 270px;
+}
+.to-img1 {
+  width: 300px;
+  height: 300px;
+  margin-left: 370px;
+  object-fit: contain;
+  background: #dde2ee;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px #b8bfd399;
+  display: block;
+}
+.to-img2 {
+  width: 300px;
+  height: 300px;
+  margin-left: 370px;
+  object-fit: contain;
+  background: #dde2ee;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px #b8bfd399;
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  .to-flex-row, .to-flex-row.reverse {
+    max-width: 99vw;
+    padding: 0 0.6rem;
+    gap: 1.2rem;
+  }
+  .to-text-card {
+    min-width: 120px;
+    max-width: 99vw;
+    padding: 1.2rem 0.8rem 1.2rem 0.8rem;
+  }
+  .to-img-col {
+    min-width: 80px;
+    max-width: 120px;
+  }
+  .to-img {
+    width: 110px;
+    height: 110px;
+  }
+}
+@media (max-width: 700px) {
+  .to-flex-row,
+  .to-flex-row.reverse {
+    flex-direction: column !important;
+    gap: 0.7rem;
+    max-width: 99vw;
+    align-items: stretch;
+    margin-top: 1.2rem;
+  }
+  .to-text-card {
+    min-width: unset;
+    max-width: 99vw;
+    padding: 0.7rem 0.3rem 1.2rem 0.4rem;
+    border-radius: 0.7rem;
+  }
+  .to-img-col {
+    min-width: 60px;
+    max-width: 99vw;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+  }
+  .to-img {
+    width: 70px;
+    height: 70px;
   }
 }
