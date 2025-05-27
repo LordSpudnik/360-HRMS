@@ -259,7 +259,6 @@ export default function Payroll() {
         {/* Salary Table Section */}
         <div className="salary-structure-section scroll-animate">
           <div className="salary-structure-row salary-table-row">
-            {/* Table on left, (no image for table) */}
             <div className="salary-table-col">
               <div className="salary-structure-title">Sample Salary Breakup Table</div>
               <div className="salary-table-wrapper">
@@ -331,6 +330,140 @@ export default function Payroll() {
           </div>
         </div>
         {/* End Salary Table Section */}
+        
+        {/* Payroll Processing Steps Section */}
+        <div className="payroll-steps-section scroll-animate">
+          <div className="payroll-steps-title">Payroll Processing Steps</div>
+          <div className="payroll-steps-timeline">
+            <div className="payroll-steps-row payroll-steps-row-1">
+              <div className="payroll-step-col-left">
+                <div className="payroll-step-title">Data Collection</div>
+                <div className="payroll-step-desc">
+                  Gathering employee details,<br />
+                  attendance, leave records, etc.
+                </div>
+              </div>
+              <div className="payroll-step-circle">01</div>
+              <div className="payroll-step-col-right"></div>
+            </div>
+            <div className="payroll-steps-row payroll-steps-row-2">
+              <div className="payroll-step-col-left"></div>
+              <div className="payroll-step-circle">02</div>
+              <div className="payroll-step-col-right">
+                <div className="payroll-step-title">Salary Calculation</div>
+                <div className="payroll-step-desc">
+                  Computing gross salary<br />
+                  and applicable deductions.
+                </div>
+              </div>
+            </div>
+            <div className="payroll-steps-row payroll-steps-row-3">
+              <div className="payroll-step-col-left">
+                <div className="payroll-step-title">Payslip Generation</div>
+                <div className="payroll-step-desc">
+                  Creating detailed salary slips<br />
+                  and reports for employees.
+                </div>
+              </div>
+              <div className="payroll-step-circle">03</div>
+              <div className="payroll-step-col-right"></div>
+            </div>
+            <div className="payroll-steps-row payroll-steps-row-4">
+              <div className="payroll-step-col-left"></div>
+              <div className="payroll-step-circle">04</div>
+              <div className="payroll-step-col-right">
+                <div className="payroll-step-title">Salary Disbursement</div>
+                <div className="payroll-step-desc">
+                  Transferring net salaries to<br />
+                  employee bank accounts<br />
+                  and generating payment receipts.
+                </div>
+              </div>
+            </div>
+            <div className="payroll-steps-row payroll-steps-row-5">
+              <div className="payroll-step-col-left">
+                <div className="payroll-step-title">Statutory Compliance</div>
+                <div className="payroll-step-desc">
+                  Ensuring timely deposit of<br />
+                  PF, ESI, TDS, and<br />
+                  filing necessary returns.
+                </div>
+              </div>
+              <div className="payroll-step-circle">05</div>
+              <div className="payroll-step-col-right"></div>
+            </div>
+            {/* Timeline vertical line */}
+            <div className="payroll-steps-vertical-line"></div>
+          </div>
+        </div>
+        {/* End Payroll Processing Steps Section */}
+
+        {/* Payroll Tracking Section */}
+        <div className="payroll-tracking-section scroll-animate">
+          <div className="payroll-tracking-title">Payroll Tracking</div>
+          <div className="payroll-tracking-box-row">
+            <div className="payroll-tracking-box">
+              <div className="payroll-tracking-box-title">Digital Payslip Archive</div>
+              <div className="payroll-tracking-box-desc">
+                Every employee's payslip for each month is saved in a secured, centralized digital repository—either on:
+                <ul>
+                  <li>HRMS cloud storage</li>
+                  <li>Internal HR shared drives with restricted access</li>
+                  <li>Email records</li>
+                </ul>
+              </div>
+            </div>
+            <div className="payroll-tracking-box">
+              <div className="payroll-tracking-box-title">System Reports</div>
+              <div className="payroll-tracking-box-desc">
+                Payroll systems generate and store reports such as:
+                <ul>
+                  <li>Salary Register (monthly/annually)</li>
+                  <li>Form 16 summaries</li>
+                  <li>PF/ESI/TDS filings</li>
+                  <li>Departmental payroll cost reports</li>
+                </ul>
+              </div>
+            </div>
+            <div className="payroll-tracking-box">
+              <div className="payroll-tracking-box-title">Payroll Retrieval</div>
+              <div className="payroll-tracking-box-desc">
+                Employees and HR can retrieve historical payrolls by:
+                <ul>
+                  <li>Employee ID and month/year</li>
+                  <li>Financial year summary</li>
+                  <li>Project/team-level breakup</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="payroll-tracking-subtitle">Tracking Past Salary Increments</div>
+          <div className="payroll-tracking-box-row payroll-increment-box-row">
+            <div className="payroll-tracking-box payroll-tracking-box-large">
+              <div className="payroll-tracking-box-title">Increment History</div>
+              <div className="payroll-tracking-box-desc">
+                Each raise is recorded as part of the employee’s salary structure history, which includes:
+                <ul>
+                  <li>Effective date of change</li>
+                  <li>Old vs. new CTC/breakup</li>
+                  <li>Reason for revision (appraisal, promotion, correction)</li>
+                </ul>
+              </div>
+            </div>
+            <div className="payroll-tracking-box payroll-tracking-box-large">
+              <div className="payroll-tracking-box-title">Audit Trail in Payroll System</div>
+              <div className="payroll-tracking-box-desc">
+                HRMS tools maintain versioned salary structures per employee, so that:
+                <ul>
+                  <li>Any raise is linked to its respective appraisal cycle</li>
+                  <li>Historical salary changes can be reviewed with context</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* End Payroll Tracking Section */}
+
       </div>
     </div>
   );
