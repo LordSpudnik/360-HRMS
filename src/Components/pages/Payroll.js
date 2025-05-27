@@ -1,19 +1,182 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import Navbar from "./Navbar";
+import SearchBar from "./SearchBar";
 import "./Payroll.css";
+import {
+  FaPhoneAlt, FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaPinterestP,
+} from "react-icons/fa";
+import { IoLogoFlickr, IoLogoWhatsapp } from "react-icons/io5";
+import { FaXTwitter } from "react-icons/fa6";
+
+// Place your main illustration in ./assets as payroll-illustration.png or replace path as needed
+import payrollImage from "./assets/imgs/payroll.png";
+// Place your salary structure illustration as needed
+import salaryStructureImg from "./assets/imgs/salary.png"; // Update path/filename if different
+
+function useScrollAnimation() {
+  useEffect(() => {
+    const handleScroll = () => {
+      document.querySelectorAll('.scroll-animate').forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+          el.classList.add('scrolled');
+        }
+      });
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+}
 
 export default function Payroll() {
+  useScrollAnimation();
+  const [showSearch, setShowSearch] = useState(false);
+
   return (
-    <motion.div
-      className="payroll-page"
-      initial={{ opacity: 0, x: 40 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -40 }}
-      transition={{ duration: 0.45, ease: "easeInOut" }}
-      style={{ minHeight: "80vh", padding: "3rem" }}
-    >
-      <h1>Payroll Page</h1>
-      {/* Payroll component content here */}
-    </motion.div>
+    <div className="payroll-page">
+      {/* Topbar */}
+      <div className="topbar">
+        <div className="contact-info">
+          <span><FaPhoneAlt /> +91 78452 80780</span>
+          <span><FaEnvelope /> hr@cafsinfotech.com</span>
+        </div>
+        <div className="social-icons">
+          <a href="https://www.linkedin.com/company/14573120/" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
+          <a href="https://x.com/cafs_infotech" target="_blank" rel="noopener noreferrer"><FaXTwitter /></a>
+          <a href="https://www.facebook.com/CAFSInfo/" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+          <a href="https://www.instagram.com/cafsinfotech/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+          <a href="https://in.pinterest.com/cafsinfotech/" target="_blank" rel="noopener noreferrer"><FaPinterestP /></a>
+          <a href="https://www.flickr.com/photos/157372462@N04/albums" target="_blank" rel="noopener noreferrer"><IoLogoFlickr /></a>
+          <a href="https://web.whatsapp.com/send?phone=+919500088633&text=Hi" target="_blank" rel="noopener noreferrer"><IoLogoWhatsapp /></a>
+        </div>
+      </div>
+      {/* NavBar */}
+      <Navbar onSearchClick={() => setShowSearch((prev) => !prev)} />
+      {showSearch && (
+        <div className="search-bar-overlay" onClick={() => setShowSearch(false)}>
+          <div className="search-bar-modal" onClick={e => e.stopPropagation()}>
+            <SearchBar onClose={() => setShowSearch(false)} />
+          </div>
+        </div>
+      )}
+      {/* Animated Background */}
+      <div className="payroll-bg scroll-animate">
+        <div className="payroll-main scroll-animate">
+          <div className="payroll-header-row">
+            <div className="payroll-header-col">
+              <div className="payroll-title">Payroll Processing</div>
+              <div className="payroll-desc">
+                Payroll in our company refers to the systematic process of calculating and disbursing employee salaries,
+                which includes basic pay, allowances, deductions (like taxes and PF), and benefits.<br />
+                It ensures timely, accurate payments while maintaining compliance with legal and organizational policies.
+              </div>
+              <ol className="payroll-features-list">
+                <li className="payroll-feature">
+                  <span className="feature-title">Automated Salary Processing</span>
+                  <ul>
+                    <li>
+                      Calculates salaries accurately based on attendance, leave, overtime, and predefined salary structures.
+                    </li>
+                  </ul>
+                </li>
+                <li className="payroll-feature">
+                  <span className="feature-title">Statutory Compliance Management</span>
+                  <ul>
+                    <li>
+                      Handles PF, ESI, TDS, and other legal deductions with automated filings and reports.
+                    </li>
+                  </ul>
+                </li>
+                <li className="payroll-feature">
+                  <span className="feature-title">Pay Slip Generation & Distribution</span>
+                  <ul>
+                    <li>
+                      Generate detailed monthly pay slips for employees and makes them accessible through the self-service portal.
+                    </li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+            <div className="payroll-img-col">
+              <img
+                src={payrollImage}
+                className="payroll-illustration"
+                alt="Payroll Illustration"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Salary Structure Section */}
+        <div className="salary-structure-section scroll-animate">
+          <div className="salary-structure-row">
+            <div className="salary-structure-img-col">
+              <img
+                src={salaryStructureImg}
+                className="salary-structure-illustration"
+                alt="Salary Structure"
+              />
+            </div>
+            <div className="salary-structure-timeline-col">
+              <div className="salary-structure-title">Salary Structure</div>
+              <div className="salary-structure-timeline">
+                {/* Timeline vertical */}
+                <div className="timeline-line" />
+                {/* Timeline items */}
+                <div className="timeline-item timeline-item-1">
+                  <div className="timeline-content">
+                    <div className="timeline-heading">Basic Salary</div>
+                    <div className="timeline-desc">
+                      Typically 40-50% of the gross salary.<br />
+                      It's the core of the salary and<br />
+                      forms the basis for other components.
+                    </div>
+                  </div>
+                  <div className="timeline-circle">01</div>
+                </div>
+                <div className="timeline-item timeline-item-2">
+                  <div className="timeline-content right">
+                    <div className="timeline-heading">House Rent Allowance (HRA)</div>
+                    <div className="timeline-desc">
+                      Provided to employees to<br />
+                      meet housing expenses.<br />
+                      It's usually a percentage<br />
+                      of the basic salary.
+                    </div>
+                  </div>
+                  <div className="timeline-circle">02</div>
+                </div>
+                <div className="timeline-item timeline-item-3">
+                  <div className="timeline-content">
+                    <div className="timeline-heading">Conveyance Allowance</div>
+                    <div className="timeline-desc">
+                      Given to employees to<br />
+                      cover transportation costs.
+                    </div>
+                  </div>
+                  <div className="timeline-circle">03</div>
+                </div>
+                <div className="timeline-item timeline-item-4">
+                  <div className="timeline-content right">
+                    <div className="timeline-heading">Bonuses and Incentives</div>
+                    <div className="timeline-desc">
+                      Performance-based pay.
+                    </div>
+                  </div>
+                  <div className="timeline-circle">04</div>
+                </div>
+              </div>
+              <div className="timeline-bottom-text">
+                <span className="timeline-heading">Gross Salary</span>
+                <br />
+                Sum of all the above components before deductions.
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* End Salary Structure Section */}
+      </div>
+    </div>
   );
 }

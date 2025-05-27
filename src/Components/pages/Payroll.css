@@ -1,0 +1,463 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #fff 0%, #f7f8fa 100%);
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+.payroll-page {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom, #fff 0%, #f7f8fa 100%);
+}
+
+/* Topbar/Contact/Social */
+.topbar {
+  background-color: #d3d7de;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 2rem;
+  font-size: 0.9rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 40px;
+  box-sizing: border-box;
+  z-index: 100;
+}
+.topbar .contact-info {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.topbar .contact-info span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+.topbar .social-icons {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+.social-icons a {
+  color: #000;
+  font-size: 1.1rem;
+  transition: transform 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+}
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #0077b5;
+  z-index: 2;
+}
+
+/* Navbar for Payroll page */
+.navbar {
+  background-color: #e7f1ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  margin-top: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 40px;
+  z-index: 99;
+}
+
+/* --- SearchBar Overlay Modal --- */
+.search-bar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(40, 60, 110, 0.10);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6.5rem;
+}
+.search-bar-modal {
+  background: none;
+}
+
+/* --- Animated Background and Main Content --- */
+.payroll-bg {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  padding-top: 7rem;
+  padding-bottom: 2rem;
+  background: none;
+}
+.payroll-main {
+  max-width: 1250px;
+  margin: 0 auto;
+  background: #faf7f2;
+  border-radius: 2rem;
+  box-shadow: 0 10px 32px rgba(10, 40, 90, 0.06);
+  padding: 2.8rem 2.4rem 2.1rem 2.4rem;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  animation: fadeinup 1s cubic-bezier(.17,.67,.83,.67);
+}
+@keyframes fadeinup {
+  from { opacity: 0; transform: translateY(60px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.payroll-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 2rem;
+}
+.payroll-header-col {
+  flex: 1.15;
+}
+.payroll-title {
+  font-size: 2.3rem;
+  color: #241c64;
+  font-weight: 700;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.01em;
+  animation: fadein 0.8s;
+}
+@keyframes fadein {
+  from { opacity: 0;}
+  to { opacity: 1;}
+}
+.payroll-desc {
+  font-size: 1.08rem;
+  color: #1e1c39;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.payroll-features-list {
+  margin: 0 0 0 0.5rem;
+  padding-left: 1rem;
+  text-align: left;
+}
+.payroll-feature {
+  margin-bottom: 1.1rem;
+  font-size: 1.05rem;
+  color: #232277;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  animation: fadein 0.8s;
+}
+.feature-title {
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: #1a2147;
+  margin-bottom: 0.2rem;
+}
+.payroll-feature ul {
+  margin: 0.35rem 0 0 1rem;
+  padding: 0;
+}
+.payroll-feature li {
+  font-size: 1.04rem;
+  font-weight: 400;
+  color: #3a3c6a;
+  margin-bottom: 0.2rem;
+}
+
+/* Right-hand image column */
+.payroll-img-col {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.payroll-illustration {
+  width: 95%;
+  max-width: 420px;
+  min-width: 260px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px 0 rgba(100, 100, 100, 0.11);
+  animation: floatImg 4s ease-in-out infinite alternate;
+  background: transparent;
+}
+@keyframes floatImg {
+  from { transform: translateY(0);}
+  to { transform: translateY(-18px);}
+}
+
+/* --- Salary Structure Section --- */
+.salary-structure-section {
+  margin: 2.2rem auto 0 auto;
+  max-width: 1350px;
+  width: 95%;
+  background: none;
+  padding: 0;
+  min-height: 440px;
+}
+
+.salary-structure-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.salary-structure-img-col {
+  flex: 0.9;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.salary-structure-illustration {
+  max-width: 310px;
+  min-width: 160px;
+  width: 90%;
+  border-radius: 10px;
+  background: #ece9e3;
+  box-shadow: 0 6px 24px 0 rgba(100,110,140,0.08);
+}
+
+.salary-structure-timeline-col {
+  flex: 2.1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 0.3rem;
+  position: relative;
+}
+
+.salary-structure-title {
+  font-size: 2rem;
+  color: #23205a;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  text-align: center;
+  width: 100%;
+}
+
+.salary-structure-timeline {
+  position: relative;
+  width: 100%;
+  min-height: 340px;
+  padding: 1.2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 48%;
+  top: 12px;
+  width: 8px;
+  height: 77%;
+  min-height: 275px;
+  background: #b8d2fa;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2.3rem;
+  min-height: 72px;
+}
+
+.timeline-item-1 {
+  margin-top: 0.5rem;
+}
+.timeline-item-4 {
+  margin-bottom: 0.3rem;
+}
+
+.timeline-content {
+  flex: 1.1;
+  text-align: left;
+  padding-bottom: 0.3rem;
+  font-weight: 600;
+  color: #23205a;
+  font-size: 1.14rem;
+  z-index: 3;
+  margin-right: 1.8rem;
+}
+
+.timeline-content.right {
+  margin-left: 3.2rem;
+  margin-right: 0;
+  text-align: left;
+}
+
+.timeline-heading {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #23205a;
+  margin-bottom: 0.1rem;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+}
+
+.timeline-desc {
+  font-size: 1.02rem;
+  font-weight: 400;
+  color: #1e1c39;
+  margin-top: 0.2rem;
+  line-height: 1.4;
+}
+
+.timeline-circle {
+  position: absolute;
+  left: 46.6%;
+  top: 0.2rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: #dbeaff;
+  border: 3.5px solid #8ec3ff;
+  border-radius: 50%;
+  color: #233b6e;
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 4px 16px 0 rgba(80,120,200,0.06);
+  transition: background 0.3s;
+}
+
+.timeline-bottom-text {
+  margin-top: 0.7rem;
+  width: 100%;
+  text-align: center;
+  font-size: 1.13rem;
+  font-weight: 600;
+  color: #23205a;
+}
+
+.timeline-bottom-text .timeline-heading {
+  font-size: 1.15rem;
+  color: #1f1d4c;
+}
+
+@media (max-width: 1100px) {
+  .payroll-main {
+    padding: 2rem 0.5rem 1.2rem 0.5rem;
+  }
+  .payroll-header-row {
+    gap: 1.7rem 0.8rem;
+  }
+  .salary-structure-section {
+    min-height: 370px;
+  }
+}
+
+@media (max-width: 900px) {
+  .payroll-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .payroll-img-col {
+    margin-top: 32px;
+    width: 100%;
+    justify-content: center;
+  }
+  .payroll-illustration {
+    max-width: 320px;
+    min-width: 0;
+  }
+  .salary-structure-row {
+    flex-direction: column;
+    gap: 1.3rem;
+    align-items: flex-start;
+  }
+  .salary-structure-img-col {
+    justify-content: center;
+    width: 100%;
+  }
+  .salary-structure-illustration {
+    margin: 0 auto;
+    max-width: 200px;
+    width: 90%;
+  }
+  .salary-structure-timeline-col {
+    width: 100%;
+    padding-top: 0.7rem;
+  }
+  .salary-structure-title {
+    text-align: left;
+    padding-left: 1rem;
+  }
+  .timeline-line {
+    left: 14%;
+  }
+  .timeline-circle {
+    left: 11.5%;
+  }
+  .timeline-content.right, .timeline-content {
+    margin-left: 2.6rem;
+    margin-right: 0;
+    text-align: left;
+    padding-left: 0.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .payroll-title {
+    font-size: 1.35rem;
+  }
+  .payroll-main {
+    border-radius: 1.1rem;
+    padding: 1.2rem 0.2rem 1.2rem 0.2rem;
+  }
+  .payroll-bg {
+    padding-top: 5.4rem;
+  }
+  .salary-structure-section {
+    min-height: 200px;
+  }
+  .salary-structure-illustration {
+    max-width: 90px;
+  }
+  .timeline-heading {
+    font-size: 1.02rem;
+  }
+  .timeline-desc {
+    font-size: 0.96rem;
+  }
+}
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(80px) scale(0.97);
+  transition:
+    opacity 0.8s cubic-bezier(.17,.67,.83,.67),
+    transform 0.8s cubic-bezier(.17,.67,.83,.67);
+  will-change: opacity, transform;
+}
+.scroll-animate.scrolled {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
