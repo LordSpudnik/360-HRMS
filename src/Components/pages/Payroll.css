@@ -456,3 +456,28 @@ body, html {
     font-size: 0.9rem;
   }
 }
+
+/* --- Salary Deductions Section (same layout as salary structure, reversed image/timeline) --- */
+.salary-deductions-row {
+  flex-direction: row-reverse;
+}
+
+.salary-deductions-img-col {
+  margin-top: 100px;
+  margin-right: 150px;
+}
+
+@media (max-width: 900px) {
+  .salary-deductions-row {
+    flex-direction: column;
+    gap: 1.3rem;
+    align-items: center;
+  }
+  .salary-deductions-img-col {
+    margin: 0 auto;
+    max-width: 180px;
+    width: 90%;
+    margin-top: 0;
+    margin-right: 0;
+  }
+}

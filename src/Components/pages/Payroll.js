@@ -8,10 +8,12 @@ import {
 import { IoLogoFlickr, IoLogoWhatsapp } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
 
-// Place your main illustration in ./assets as payroll-illustration.png or replace path as needed
+// Main illustration
 import payrollImage from "./assets/imgs/payroll.png";
-// Place your salary structure illustration as needed
-import salaryStructureImg from "./assets/imgs/salary.png"; // Update path/filename if different
+// Salary Structure illustration
+import salaryStructureImg from "./assets/imgs/salary.png";
+// Salary Deductions illustration (should match your new image)
+import salaryDeductionsImg from "./assets/imgs/tax.png";
 
 function useScrollAnimation() {
   useEffect(() => {
@@ -176,6 +178,73 @@ export default function Payroll() {
           </div>
         </div>
         {/* End Salary Structure Section */}
+
+        {/* Salary Deductions Section */}
+        <div className="salary-structure-section scroll-animate">
+          <div className="salary-structure-row salary-deductions-row">
+            <div className="salary-structure-timeline-col salary-deductions-timeline-col">
+              <div className="salary-structure-title">Salary Deductions</div>
+              <div className="salary-structure-timeline">
+                {/* Timeline vertical */}
+                <div className="timeline-line" />
+                {/* Timeline items */}
+                <div className="timeline-item timeline-item-1">
+                  <div className="timeline-content">
+                    <div className="timeline-heading1">Provident Fund (PF)</div>
+                    <div className="timeline-desc1">
+                      A mandatory retirement savings scheme<br />
+                      where both employer and employee<br />
+                      contribute 12% of the basic salary.
+                    </div>
+                  </div>
+                  <div className="timeline-circle">01</div>
+                </div>
+                <div className="timeline-item timeline-item-2">
+                  <div className="timeline-content">
+                    <div className="timeline-heading2">Employees' State Insurance (ESI)</div>
+                    <div className="timeline-desc2">
+                      Applicable to employees earning ₹21,000<br />
+                      or less per month. The employee<br />
+                      contributes 0.75% and the employer<br />
+                      3.25% of the gross salary.
+                    </div>
+                  </div>
+                  <div className="timeline-circle">02</div>
+                </div>
+                <div className="timeline-item timeline-item-3">
+                  <div className="timeline-content">
+                    <div className="timeline-heading1">Professional Tax (PT)</div>
+                    <div className="timeline-desc1">
+                      Levied by state governments,<br />
+                      the amount varies by state but is typically<br />
+                      a nominal amount deducted monthly.
+                    </div>
+                  </div>
+                  <div className="timeline-circle">03</div>
+                </div>
+                <div className="timeline-item timeline-item-4">
+                  <div className="timeline-content">
+                    <div className="timeline-heading2">Tax Deducted at Source (TDS)</div>
+                    <div className="timeline-desc2">
+                      Income tax deducted by the<br />
+                      employer based on the employee's<br />
+                      applicable tax slab.
+                    </div>
+                  </div>
+                  <div className="timeline-circle">04</div>
+                </div>
+              </div>
+            </div>
+            <div className="salary-structure-img-col salary-deductions-img-col">
+              <img
+                src={salaryDeductionsImg}
+                className="salary-structure-illustration"
+                alt="Salary Deductions"
+              />
+            </div>
+          </div>
+        </div>
+        {/* End Salary Deductions Section */}
       </div>
     </div>
   );
