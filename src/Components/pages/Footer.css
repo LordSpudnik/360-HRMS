@@ -4,7 +4,6 @@
   color: #eaf7ff;
   padding: 0;
   margin: 0;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   letter-spacing: 0.01em;
 }
 
@@ -45,7 +44,7 @@
 }
 
 .footer-about-text {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #eaf7ff;
   margin-top: 0;
@@ -54,17 +53,16 @@
 }
 
 .footer-col-title {
-  font-size: 2.2rem;
+  font-size: 1.9rem;
   font-weight: 700;
   color: #f4faff;
   margin-bottom: 18px;
   margin-top: 0;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   letter-spacing: 0.01em;
 }
 
 .footer-col-content {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #eaf7ff;
   line-height: 1.6;
