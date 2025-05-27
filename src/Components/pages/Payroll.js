@@ -12,22 +12,37 @@ import { FaXTwitter } from "react-icons/fa6";
 import payrollImage from "./assets/imgs/payroll.png";
 // Salary Structure illustration
 import salaryStructureImg from "./assets/imgs/salary.png";
-// Salary Deductions illustration (should match your new image)
+// Salary Deductions illustration
 import salaryDeductionsImg from "./assets/imgs/tax.png";
 
+// --- MODIFIED useScrollAnimation with IntersectionObserver for in/out animation ---
 function useScrollAnimation() {
   useEffect(() => {
-    const handleScroll = () => {
-      document.querySelectorAll('.scroll-animate').forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 60) {
-          el.classList.add('scrolled');
-        }
-      });
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    const elements = document.querySelectorAll('.scroll-animate');
+
+    // We'll track state for each element to avoid jitter
+    const hysteresisRatioIn = 0.18;  // When to add (section is at least 18% visible)
+    const hysteresisRatioOut = 0.02; // When to remove (section is less than 2% visible)
+
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio > hysteresisRatioIn) {
+            entry.target.classList.add('scrolled');
+          } else if (entry.intersectionRatio < hysteresisRatioOut) {
+            entry.target.classList.remove('scrolled');
+          }
+          // If in between, leave the class as it was (prevents jitter)
+        });
+      },
+      {
+        threshold: [0, 0.02, 0.18, 0.5, 0.8, 1],
+        rootMargin: "0px 0px 0px 0px"
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 }
 
@@ -181,13 +196,12 @@ export default function Payroll() {
 
         {/* Salary Deductions Section */}
         <div className="salary-structure-section scroll-animate">
-          <div className="salary-structure-row salary-deductions-row">
-            <div className="salary-structure-timeline-col salary-deductions-timeline-col">
+          <div className="salary-structure-row">
+            {/* Timeline and Text on the left */}
+            <div className="salary-structure-timeline-col">
               <div className="salary-structure-title">Salary Deductions</div>
               <div className="salary-structure-timeline">
-                {/* Timeline vertical */}
                 <div className="timeline-line" />
-                {/* Timeline items */}
                 <div className="timeline-item timeline-item-1">
                   <div className="timeline-content">
                     <div className="timeline-heading1">Provident Fund (PF)</div>
@@ -235,6 +249,7 @@ export default function Payroll() {
                 </div>
               </div>
             </div>
+            {/* Image on the right */}
             <div className="salary-structure-img-col salary-deductions-img-col">
               <img
                 src={salaryDeductionsImg}

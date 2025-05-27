@@ -10,17 +10,29 @@ import leaveImg from "./assets/imgs/leave.png"; // Add your SVG/PNG here
 // Scroll animation hook (same logic as homepage)
 function useScrollAnimation() {
   useEffect(() => {
-    const elements = document.querySelectorAll(".scroll-animate");
-    function callback(entries) {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("scrolled");
-        } else {
-          entry.target.classList.remove("scrolled");
-        }
-      });
-    }
-    const observer = new window.IntersectionObserver(callback, { threshold: 0.14 });
+    const elements = document.querySelectorAll('.scroll-animate');
+
+    // We'll track state for each element to avoid jitter
+    const hysteresisRatioIn = 0.18;  // When to add (section is at least 18% visible)
+    const hysteresisRatioOut = 0.02; // When to remove (section is less than 2% visible)
+
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio > hysteresisRatioIn) {
+            entry.target.classList.add('scrolled');
+          } else if (entry.intersectionRatio < hysteresisRatioOut) {
+            entry.target.classList.remove('scrolled');
+          }
+          // If in between, leave the class as it was (prevents jitter)
+        });
+      },
+      {
+        threshold: [0, 0.02, 0.18, 0.5, 0.8, 1],
+        rootMargin: "0px 0px 0px 0px"
+      }
+    );
+
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
