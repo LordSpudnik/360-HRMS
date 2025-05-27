@@ -21,29 +21,55 @@ function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
 
-    // We'll track state for each element to avoid jitter
-    const hysteresisRatioIn = 0.18;  // When to add (section is at least 18% visible)
-    const hysteresisRatioOut = 0.02; // When to remove (section is less than 2% visible)
+    function isInViewport(el, ratio = 0.18) {
+      const rect = el.getBoundingClientRect();
+      const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+      const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+      const vertInView =
+        rect.top + rect.height * ratio < windowHeight &&
+        rect.bottom - rect.height * ratio > 0;
+      const horInView =
+        rect.left < windowWidth && rect.right > 0;
+      return vertInView && horInView;
+    }
 
+    // On mount, set initial state
+    function forceInitialScrollState() {
+      document.querySelectorAll('.scroll-animate').forEach((el) => {
+        if (isInViewport(el)) {
+          el.classList.add('scrolled');
+        } else {
+          el.classList.remove('scrolled');
+        }
+      });
+    }
+
+    forceInitialScrollState();
+    window.addEventListener("load", forceInitialScrollState);
+    const timeout = setTimeout(forceInitialScrollState, 500);
+
+    // IntersectionObserver: add .scrolled when in view, remove when out of view
     const observer = new window.IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.intersectionRatio > hysteresisRatioIn) {
+          if (entry.intersectionRatio > 0.18) {
             entry.target.classList.add('scrolled');
-          } else if (entry.intersectionRatio < hysteresisRatioOut) {
+          } else {
             entry.target.classList.remove('scrolled');
           }
-          // If in between, leave the class as it was (prevents jitter)
         });
       },
       {
-        threshold: [0, 0.02, 0.18, 0.5, 0.8, 1],
-        rootMargin: "0px 0px 0px 0px"
+        threshold: [0, 0.02, 0.18, 0.5, 0.8, 1]
       }
     );
-
     elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("load", forceInitialScrollState);
+      clearTimeout(timeout);
+    };
   }, []);
 }
 
