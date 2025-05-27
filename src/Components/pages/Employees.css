@@ -1,0 +1,492 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #fff 0%, #f7f8fa 100%);
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+.employees-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Topbar and Navbar styling */
+.topbar {
+  background-color: #d3d7de;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 2rem;
+  font-size: 0.9rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 40px;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+.topbar .contact-info {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.topbar .contact-info span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+.topbar .social-icons {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.social-icons a {
+  color: #000;
+  font-size: 1.1rem;
+  transition: transform 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #0077b5;
+  z-index: 2;
+}
+
+.navbar {
+  background-color: #e7f1ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  margin-top: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 40px;
+  z-index: 99;
+}
+
+/* --- Search Bar Overlay Modal --- */
+.search-bar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(40, 60, 110, 0.10);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6.5rem;
+}
+.search-bar-modal {
+  background: none;
+}
+
+/* Employee section styling */
+.emp-bg {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  padding-top: 7rem;
+}
+
+.emp-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.6rem 1.5rem 1.3rem 1.5rem;
+  position: relative;
+  z-index: 1;
+  background: #f7f8fa;
+  border-radius: 2rem;
+  box-shadow: 0 12px 24px rgba(10, 40, 90, 0.04);
+}
+
+.emp-title {
+  font-size: 2rem;
+  text-align: center;
+  color: #242273;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+  letter-spacing: 0.01em;
+}
+
+.emp-desc {
+  color: #333;
+  font-size: 1.08rem;
+  text-align: center;
+  margin-bottom: 2.3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.emp-section-title {
+  color: #242273;
+  font-size: 1.36rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2.1rem;
+  margin-top: 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+/* --- Employee Monitoring and Reporting Section --- */
+.emp-monitoring-section {
+  max-width: 1400px;
+  margin: 3.5rem auto 2.5rem auto;
+  background: #fcfcfd;
+  border-radius: 1.3rem;
+  box-shadow: 0 6px 32px 0 rgba(50, 60, 100, 0.09);
+  padding: 2.5rem 2.5rem 2.8rem 2.5rem;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(70px);
+  transition: all 0.8s cubic-bezier(.17,.67,.83,.67);
+}
+.emp-monitoring-section.scrolled {
+  opacity: 1;
+  transform: translateY(0);
+}
+.emp-monitoring-main-title {
+  color: #241c64;
+  font-size: 2.1rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.8rem;
+  letter-spacing: .01em;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+}
+
+/* Custom 2x2 grid layout for the image */
+.emp-monitoring-picture-layout {
+  display: grid;
+  grid-template-columns: 410px 1fr;
+  grid-template-rows: 220px 220px;
+  gap: 40px 35px;
+  grid-template-areas:
+    "perfimg perftrack"
+    "compliancebox compimg";
+  background: none;
+  min-height: 480px;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+}
+
+.emp-monitoring-perf-img {
+  grid-area: perfimg;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 220px;
+}
+.emp-monitoring-perf-img img {
+  width: 320px;
+  max-width: 100%;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 18px #d6dcf7a0;
+  margin-top: 0;
+  margin-left: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.emp-monitoring-engagement-card {
+  grid-area: perftrack;
+  background: #ededf5;
+  border: 2.5px solid #6e64b8;
+  border-radius: 1rem;
+  box-shadow: 0 2px 18px #8582a122;
+  padding: 1.1rem 2rem 1.1rem 2rem;
+  color: #241c64;
+  font-size: 1.13rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  font-weight: 500;
+  width: 100%;
+  max-width: 670px;
+  min-width: 320px;
+  transition: box-shadow 0.23s, border-color 0.23s, transform 0.33s;
+}
+.emp-monitoring-title {
+  font-weight: 700;
+  font-size: 1.28rem;
+  color: #241c64;
+  margin-bottom: 0.4rem;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+}
+.emp-monitoring-engagement-card ul {
+  margin: 0.4rem 0 0 1.1rem;
+  padding-left: 1.2em;
+  font-size: 1.06rem;
+  color: #222;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  list-style-type: disc;
+}
+
+/* Compliance box */
+.emp-monitoring-compliance-card {
+  grid-area: compliancebox;
+  background: #ededf5;
+  border: 2.5px solid #6e64b8;
+  border-radius: 1rem;
+  box-shadow: 0 2px 18px #8582a122;
+  padding: 1.1rem 2rem 1.1rem 2rem;
+  color: #241c64;
+  font-size: 1.13rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  font-weight: 500;
+  width: 100%;
+  max-width: 670px;
+  min-width: 320px;
+  transition: box-shadow 0.23s, border-color 0.23s, transform 0.33s;
+}
+.emp-monitoring-compliance-card ul {
+  margin: 0.4rem 0 0 1.1rem;
+  padding-left: 1.2em;
+  font-size: 1.06rem;
+  color: #222;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  list-style-type: disc;
+}
+.emp-monitoring-comp-img {
+  grid-area: compimg;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+  height: 220px;
+}
+.emp-monitoring-comp-img img {
+  width: 280px;
+  max-width: 100%;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 18px #d6dcf7a0;
+  margin-bottom: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* Hover effects ONLY on text cards */
+.hoverable:hover {
+  box-shadow: 0 8px 32px 0 #b0a5e2ad, 0 0 0 4px #7e74ba33;
+  border-color: #241c64;
+  transform: translateY(-6px) scale(1.025);
+  z-index: 10;
+}
+
+@media (max-width: 1200px) {
+  .emp-monitoring-section {
+    padding: 1.3rem 0.5rem 1.5rem 0.5rem;
+  }
+  .emp-monitoring-picture-layout {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 170px 170px;
+    gap: 24px 10px;
+  }
+  .emp-monitoring-perf-img img,
+  .emp-monitoring-comp-img img {
+    width: 160px;
+    max-width: 95vw;
+  }
+  .emp-monitoring-engagement-card,
+  .emp-monitoring-compliance-card {
+    font-size: 1.01rem;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+    min-width: 180px;
+  }
+  .emp-monitoring-title {
+    font-size: 1.08rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .emp-monitoring-section {
+    padding: 0.7rem 0.2rem 1.1rem 0.2rem;
+  }
+  .emp-monitoring-main-title {
+    font-size: 1.2rem;
+  }
+  .emp-monitoring-picture-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    gap: 1.3rem 0;
+    min-height: unset;
+  }
+  .emp-monitoring-perf-img,
+  .emp-monitoring-comp-img,
+  .emp-monitoring-engagement-card,
+  .emp-monitoring-compliance-card {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 98vw;
+    min-width: unset;
+    width: 100%;
+  }
+  .emp-monitoring-perf-img img,
+  .emp-monitoring-comp-img img {
+    max-width: 130px;
+    padding: 0.5rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .emp-monitoring-section {
+    padding: 0.4rem 0.05rem 0.5rem 0.05rem;
+  }
+  .emp-monitoring-main-title {
+    font-size: 1.01rem;
+  }
+  .emp-monitoring-engagement-card,
+  .emp-monitoring-compliance-card {
+    font-size: 0.91rem;
+    padding: 0.42rem 0.42rem 0.42rem 0.55rem;
+    margin: 0 0 0 0.2rem;
+    min-width: unset;
+    max-width: 100vw;
+  }
+  .emp-monitoring-perf-img img,
+  .emp-monitoring-comp-img img {
+    max-width: 90px;
+    padding: 0.2rem;
+    width: 100%;
+  }
+}
+
+/* --- Employee Cards (unchanged) --- */
+.emp-card-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.emp-card {
+  background: #eceffa;
+  border: 2.5px solid #b8bfd3;
+  border-radius: 1rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.09);
+  padding: 2.2rem 1.3rem 2rem 1.3rem;
+  text-align: center;
+  max-width: 340px;
+  min-width: 280px;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 
+    box-shadow 0.3s,
+    border-color 0.23s,
+    transform 0.33s;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  will-change: transform, opacity;
+}
+
+.emp-card.scrolled {
+  opacity: 1;
+  transform: translateY(0) scale(1.03);
+  box-shadow: 0 8px 18px rgba(0, 76, 255, 0.08);
+  transition:
+    transform 0.7s cubic-bezier(.17,.67,.83,.67),
+    opacity 0.8s;
+}
+
+.main-card-width {
+  min-width: 1150px;
+  max-width: 1150px;
+  width: 1150px;
+}
+
+@media (max-width: 1150px) {
+  .main-card-width {
+    min-width: 260px;
+    max-width: 100vw;
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .main-card-width {
+    min-width: 140px;
+    width: 98vw;
+    max-width: 100vw;
+  }
+}
+
+.emp-card:hover {
+  box-shadow: 0 14px 36px 0 rgba(40,130,255,0.13), 0 0 0 4px #24227319;
+  border-color: #242273;
+  transform: translateY(-7px) scale(1.045);
+  z-index: 2;
+}
+
+.emp-card-icon {
+  font-size: 2.5rem;
+  color: #222a7b;
+  margin-bottom: 1.1rem;
+  margin-top: 0.2rem;
+}
+
+.emp-card-title {
+  font-size: 1.09rem;
+  color: #1a2a6c;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 0.1rem;
+}
+
+.emp-card-text {
+  color: #27374d;
+  font-size: 0.98rem;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.38;
+  margin-top: 0.1rem;
+}
+
+@media (max-width: 1100px) {
+  .emp-card-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.7rem;
+  }
+  .emp-main {
+    padding: 2.6rem 0.5rem 1.3rem 0.5rem;
+  }
+}
