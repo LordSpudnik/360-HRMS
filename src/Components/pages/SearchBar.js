@@ -59,6 +59,7 @@ const SearchBar = ({ onClose }) => {
   const [query, setQuery] = useState("");
   const [currentIdx, setCurrentIdx] = useState(0);
   const [total, setTotal] = useState(0);
+  const [searched, setSearched] = useState(false); // <-- Add state to track if search was performed
   const occurenceRefs = useRef([]);
   const inputRef = useRef();
   const [searchRoot, setSearchRoot] = useState(null);
@@ -95,6 +96,7 @@ const SearchBar = ({ onClose }) => {
     setQuery("");
     setTotal(0);
     setCurrentIdx(0);
+    setSearched(false); // <-- Reset searched state
     onClose();
   };
 
@@ -107,11 +109,15 @@ const SearchBar = ({ onClose }) => {
     setCurrentIdx(0);
     setTotal(0);
 
-    if (query.trim() === "") return;
+    if (query.trim() === "") {
+      setSearched(false);
+      return;
+    }
 
     occurenceRefs.current = highlightText(searchRoot, query);
     setTotal(occurenceRefs.current.length);
     setCurrentIdx(occurenceRefs.current.length > 0 ? 0 : 0);
+    setSearched(true); // <-- Set searched to true after a search
 
     if (occurenceRefs.current.length) {
       occurenceRefs.current[0].classList.add(CURRENT_CLASS);
@@ -127,6 +133,7 @@ const SearchBar = ({ onClose }) => {
       occurenceRefs.current = [];
       setTotal(0);
       setCurrentIdx(0);
+      setSearched(false); // <-- Reset searched state
     }
   };
 
@@ -169,6 +176,9 @@ const SearchBar = ({ onClose }) => {
         aria-label="Search"
       />
       <button type="submit">Go</button>
+      {searched && total === 0 && (
+        <div className="search-count" style={{ fontWeight: "bold", color: "#0077b5", marginLeft: 10 }}>0/0</div>
+      )}
       {total > 0 && (
         <div className="search-nav-group">
           <span className="search-count">
