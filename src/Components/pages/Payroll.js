@@ -19,11 +19,8 @@ import salaryDeductionsImg from "./assets/imgs/tax.png";
 function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
-
-    // We'll track state for each element to avoid jitter
     const hysteresisRatioIn = 0.18;  // When to add (section is at least 18% visible)
     const hysteresisRatioOut = 0.02; // When to remove (section is less than 2% visible)
-
     const observer = new window.IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -32,7 +29,6 @@ function useScrollAnimation() {
           } else if (entry.intersectionRatio < hysteresisRatioOut) {
             entry.target.classList.remove('scrolled');
           }
-          // If in between, leave the class as it was (prevents jitter)
         });
       },
       {
@@ -40,7 +36,6 @@ function useScrollAnimation() {
         rootMargin: "0px 0px 0px 0px"
       }
     );
-
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
@@ -260,6 +255,82 @@ export default function Payroll() {
           </div>
         </div>
         {/* End Salary Deductions Section */}
+
+        {/* Salary Table Section */}
+        <div className="salary-structure-section scroll-animate">
+          <div className="salary-structure-row salary-table-row">
+            {/* Table on left, (no image for table) */}
+            <div className="salary-table-col">
+              <div className="salary-structure-title">Sample Salary Breakup Table</div>
+              <div className="salary-table-wrapper">
+                <table className="salary-table">
+                  <thead>
+                    <tr>
+                      <th>Emp ID</th>
+                      <th>Basic Salary</th>
+                      <th>HRA</th>
+                      <th>Conveyance Allowance</th>
+                      <th>Special Allowance</th>
+                      <th>Gross Salary</th>
+                      <th>PF (12%)</th>
+                      <th>ESI (0.75%)</th>
+                      <th>PT</th>
+                      <th>TDS</th>
+                      <th>Total Deductions</th>
+                      <th>Net Salary</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>811</td>
+                      <td>25,000</td>
+                      <td>10,000</td>
+                      <td>2,000</td>
+                      <td>3,000</td>
+                      <td>40,000</td>
+                      <td>3,000</td>
+                      <td>300</td>
+                      <td>180</td>
+                      <td>0</td>
+                      <td>3,480</td>
+                      <td>36,520</td>
+                    </tr>
+                    <tr>
+                      <td>812</td>
+                      <td>30,000</td>
+                      <td>12,000</td>
+                      <td>2,500</td>
+                      <td>3,500</td>
+                      <td>48,000</td>
+                      <td>3,600</td>
+                      <td>360</td>
+                      <td>200</td>
+                      <td>0</td>
+                      <td>4,160</td>
+                      <td>43,840</td>
+                    </tr>
+                    <tr>
+                      <td>813</td>
+                      <td>28,000</td>
+                      <td>11,000</td>
+                      <td>2,200</td>
+                      <td>3,300</td>
+                      <td>44,500</td>
+                      <td>3,360</td>
+                      <td>334</td>
+                      <td>190</td>
+                      <td>0</td>
+                      <td>3,884</td>
+                      <td>40,616</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            {/* No image on right for this section */}
+          </div>
+        </div>
+        {/* End Salary Table Section */}
       </div>
     </div>
   );

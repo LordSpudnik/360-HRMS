@@ -493,3 +493,83 @@ body, html {
   transform: translateY(0) scale(1);
   pointer-events: auto;
 }
+
+/* --- Salary Table Section (matches style/layout of structure/deductions) --- */
+
+.salary-table-col {
+  flex: 2.2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  min-width: 320px;
+}
+
+.salary-table-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+  padding: 1.6rem 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.salary-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f7f9fa;
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 1.09rem;
+  box-shadow: 0 3px 18px 0 rgba(100,110,140,0.07);
+}
+
+.salary-table th, .salary-table td {
+  border: 1px solid #c4c9d6;
+  padding: 0.65rem 0.75rem;
+  text-align: center;
+}
+
+.salary-table th {
+  background: #e4e7ee;
+  color: #23205a;
+  font-size: 1.09rem;
+  font-weight: 700;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  letter-spacing: 0.01em;
+}
+.salary-table td {
+  background: #f7f9fa;
+  color: #23205a;
+  font-weight: 500;
+}
+.salary-table tr:nth-child(even) td {
+  background: #f0f3f8;
+}
+
+@media (max-width: 1100px) {
+  .salary-table-wrapper {
+    max-width: 700px;
+  }
+  .salary-table th, .salary-table td {
+    padding: 0.27rem 0.35rem;
+    font-size: 0.97rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .salary-table-row {
+    flex-direction: column;
+    gap: 1.3rem;
+    align-items: center;
+  }
+  .salary-table-wrapper {
+    max-width: 98vw;
+    padding: 1.2rem 0 0 0;
+    overflow-x: auto;
+  }
+  .salary-table {
+    font-size: 0.91rem;
+  }
+}
