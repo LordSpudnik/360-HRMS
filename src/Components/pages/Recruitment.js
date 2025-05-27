@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 import SearchBar from "./SearchBar";
 import "./Recruitment.css";
@@ -16,10 +17,8 @@ import Footer from "./Footer";
 function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
-
-    // We'll track state for each element to avoid jitter
-    const hysteresisRatioIn = 0.18;  // When to add (section is at least 18% visible)
-    const hysteresisRatioOut = 0.02; // When to remove (section is less than 2% visible)
+    const hysteresisRatioIn = 0.18;
+    const hysteresisRatioOut = 0.02;
 
     const observer = new window.IntersectionObserver(
       (entries) => {
@@ -29,7 +28,6 @@ function useScrollAnimation() {
           } else if (entry.intersectionRatio < hysteresisRatioOut) {
             entry.target.classList.remove('scrolled');
           }
-          // If in between, leave the class as it was (prevents jitter)
         });
       },
       {
@@ -37,7 +35,6 @@ function useScrollAnimation() {
         rootMargin: "0px 0px 0px 0px"
       }
     );
-
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
@@ -87,7 +84,14 @@ export default function Recruitment() {
         </div>
       )}
 
-      <div className="recruitment-bg">
+      {/* === Animate only the main content, not navbar/topbar/footer === */}
+      <motion.div
+        className="recruitment-bg"
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -40 }}
+        transition={{ duration: 0.45, ease: "easeInOut" }}
+      >
         <div className="recruitment-main scroll-animate">
           <h1 className="recruitment-title">Recruitment</h1>
           <div className="recruitment-desc">
@@ -236,7 +240,7 @@ export default function Recruitment() {
           </div>
           {/* End Candidate Tracking Section */}
         </div>
-      </div>
+      </motion.div>
       <Footer />
     </div>
   );

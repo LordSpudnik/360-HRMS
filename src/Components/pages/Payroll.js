@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 import SearchBar from "./SearchBar";
 import "./Payroll.css";
@@ -35,19 +36,17 @@ function useScrollAnimation() {
       },
       {
         threshold: [0, 0.02, 0.18, 0.5, 0.8, 1],
-        rootMargin: "-100px 0px" // Add negative margin to trigger earlier
+        rootMargin: "-100px 0px"
       }
     );
 
     elements.forEach((el) => {
-      // Force check initial state
       observer.observe(el);
       if (el.getBoundingClientRect().top < window.innerHeight) {
         el.classList.add('scrolled');
       }
     });
 
-    // Add resize/transition listener
     const resizeHandler = () => {
       elements.forEach(el => {
         if (el.getBoundingClientRect().top < window.innerHeight) {
@@ -57,7 +56,7 @@ function useScrollAnimation() {
     };
 
     window.addEventListener('resize', resizeHandler);
-    
+
     return () => {
       observer.disconnect();
       window.removeEventListener('resize', resizeHandler);
@@ -96,8 +95,14 @@ export default function Payroll() {
           </div>
         </div>
       )}
-      {/* Animated Background */}
-      <div className="payroll-bg scroll-animate">
+      {/* Animate ONLY the main content */}
+      <motion.div
+        className="payroll-bg scroll-animate"
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -40 }}
+        transition={{ duration: 0.45, ease: "easeInOut" }}
+      >
         <div className="payroll-main scroll-animate">
           <div className="payroll-header-row">
             <div className="payroll-header-col">
@@ -487,8 +492,7 @@ export default function Payroll() {
           </div>
         </div>
         {/* End Payroll Tracking Section */}
-
-      </div>
+      </motion.div>
       <Footer />
     </div>
   );

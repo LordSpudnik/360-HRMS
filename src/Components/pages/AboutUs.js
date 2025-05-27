@@ -133,8 +133,8 @@ export default function AboutUs() {
         className="about-us-page scroll-animate"
         initial={{ opacity: 0, y: 70 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -70 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
+        exit={{ opacity: 0, x: -40 }}
+        transition={{ duration: 0.45, ease: "easeInOut" }}
       >
         <h1>About Us Page</h1>
         <div className="aboutus-content">

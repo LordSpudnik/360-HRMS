@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 import SearchBar from "./SearchBar";
 import Footer from "./Footer";
@@ -25,7 +26,6 @@ function useScrollAnimation() {
           } else if (entry.intersectionRatio < hysteresisRatioOut) {
             entry.target.classList.remove('scrolled');
           }
-          // If in between, leave the class as it was (prevents jitter)
         });
       },
       {
@@ -73,7 +73,14 @@ export default function LeaveManagement() {
         </div>
       )}
 
-      <div className="leave-bg">
+      {/* Only main content animated in/out */}
+      <motion.div
+        className="leave-bg"
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -40 }}
+        transition={{ duration: 0.45, ease: "easeInOut" }}
+      >
         <div className="leave-main scroll-animate">
           <h1 className="leave-title">Leave Management</h1>
           <div className="leave-desc">
@@ -118,8 +125,7 @@ export default function LeaveManagement() {
             {/* Right: Illustration */}
             <div className="leave-illustration-col scroll-animate">
               <img src={leaveImg} alt="Leave Management Illustration" className="leave-illustration-img" />
-              <div className="leave-illustration-title">
-              </div>
+              <div className="leave-illustration-title" />
             </div>
           </div>
           {/* How to Apply Section */}
@@ -181,7 +187,7 @@ export default function LeaveManagement() {
             </ul>
           </div>
         </div>
-      </div>
+      </motion.div>
       <Footer />
     </div>
   );

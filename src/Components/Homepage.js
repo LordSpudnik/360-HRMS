@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import "./Homepage.css";
 import {
   FaPhoneAlt, FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn,
@@ -23,17 +24,13 @@ import svcLogo from "./pages/assets/icons/SVC.png";
 import CountUpOnView from "./CountUpOnView";
 import SearchBar from "./pages/SearchBar";
 import Navbar from "./pages/Navbar";
-import { useEffect } from "react";
 import Footer from "./pages/Footer";
 
 function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
-
-    // We'll track state for each element to avoid jitter
-    const hysteresisRatioIn = 0.18;  // When to add (section is at least 18% visible)
-    const hysteresisRatioOut = 0.02; // When to remove (section is less than 2% visible)
-
+    const hysteresisRatioIn = 0.18;
+    const hysteresisRatioOut = 0.02;
     const observer = new window.IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -42,7 +39,6 @@ function useScrollAnimation() {
           } else if (entry.intersectionRatio < hysteresisRatioOut) {
             entry.target.classList.remove('scrolled');
           }
-          // If in between, leave the class as it was (prevents jitter)
         });
       },
       {
@@ -50,7 +46,6 @@ function useScrollAnimation() {
         rootMargin: "0px 0px 0px 0px"
       }
     );
-
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
@@ -61,7 +56,7 @@ const Homepage = () => {
   const [showSearch, setShowSearch] = useState(false);
 
   return (
-    <div className="homepage">
+    <div>
       <div className="topbar">
         <div className="contact-info">
           <span><FaPhoneAlt /> +91 78452 80780</span>
@@ -87,7 +82,13 @@ const Homepage = () => {
           </div>
         </div>
       )}
-
+      <motion.div
+        className="homepage"
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -40 }}
+        transition={{ duration: 0.45, ease: "easeInOut" }}
+      >
       <div className="hero-section">
         <h1>Empowering Your Workforce With Smart HR Solutions</h1>
         <p>Streamline HR Operations with our intuitive and efficient HRMS Platform.</p>
@@ -352,6 +353,7 @@ const Homepage = () => {
       </section>
       {/* --- End Testimonial Section --- */}
       <Footer />
+    </motion.div>
     </div>
   );
 };

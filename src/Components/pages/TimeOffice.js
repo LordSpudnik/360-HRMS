@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 import SearchBar from "./SearchBar";
 import "./TimeOffice.css";
@@ -41,7 +42,6 @@ function useScrollAnimation() {
     );
 
     elements.forEach((el) => {
-      // Force check initial state
       observer.observe(el);
       if (el.getBoundingClientRect().top < window.innerHeight) {
         el.classList.add('scrolled');
@@ -97,7 +97,14 @@ export default function TimeOffice() {
         </div>
       )}
 
-      <div className="timeoffice-bg">
+      {/* Animate ONLY the main content */}
+      <motion.div
+        className="timeoffice-bg"
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -40 }}
+        transition={{ duration: 0.45, ease: "easeInOut" }}
+      >
         <div className="timeoffice-main scroll-animate">
           <div className="timeoffice-header-row">
             <h1 className="timeoffice-title">Time Office</h1>
@@ -331,7 +338,7 @@ export default function TimeOffice() {
           </div>
           {/* --- END Integration & Compliance Section --- */}
         </div>
-      </div>
+      </motion.div>
       <Footer />
     </div>
   );
