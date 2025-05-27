@@ -224,9 +224,9 @@ body, html {
 
 /* --- Employee Monitoring & Reporting Section --- */
 .emp-monitoring-section {
-  max-width: 1200px;
+  max-width: 900px;
   margin: 3.5rem auto 2.5rem auto;
-  background: #fcfcfd;
+  background: #f7f8fa;
   border-radius: 1.3rem;
   box-shadow: 0 6px 32px 0 rgba(50, 60, 100, 0.09);
   padding: 2.5rem 2.5rem 2.8rem 2.5rem;
@@ -290,8 +290,8 @@ body, html {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  min-width: 320px;
-  max-width: 700px;
+  min-height: 250px;
+  max-width: 300px;
   padding: 0 1rem;
   background: #ededf5;
   border: 2.5px solid #6e64b8;
