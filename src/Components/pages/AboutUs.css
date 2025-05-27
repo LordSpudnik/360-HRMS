@@ -63,7 +63,7 @@
   margin-top: 0;
 }
 
-/* SearchBar Overlay (reuse your homepage styles) */
+/* SearchBar Overlay */
 .search-bar-overlay {
   position: fixed;
   top: 0;
@@ -81,37 +81,191 @@
   background: none;
 }
 
-/* About Us main content */
+/* Main Content */
 .about-us-page {
   max-width: 1100px;
   margin: 0 auto;
   padding: 3rem 2rem 2rem 2rem;
   min-height: 80vh;
-  margin-top: 90px; /* 40px for topbar + ~50px for navbar */
+  margin-top: 90px;
   background: none;
   opacity: 0;
   transform: translateY(70px);
   transition: all 0.8s cubic-bezier(.17,.67,.83,.67);
 }
-
 .about-us-page.scrolled {
   opacity: 1;
   transform: translateY(0);
 }
 
-.about-us-page h1 {
-  font-size: 2.4rem;
+/* Hero Section */
+.about-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  background: #f7f8fa;
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 26px rgba(80, 120, 244, 0.07);
+  padding: 2.2rem 2.2rem 2.2rem 2.2rem;
+  margin-bottom: 2.2rem;
+}
+.about-hero-text {
+  flex: 2;
+}
+.about-hero-text h1 {
+  font-size: 2.5rem;
   color: #242273;
-  margin-bottom: 1.2rem;
-  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.about-hero-img {
+  flex: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+}
+.about-hero-img img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px rgba(30,50,110,0.08);
 }
 
-.aboutus-content {
-  font-size: 1.2rem;
-  color: #223;
-  max-width: 800px;
+/* Numbers Section */
+.about-numbers-section {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 2.2rem 0;
+  flex-wrap: wrap;
+}
+.about-number-card {
+  background: #dde4fa;
+  border-radius: 1.1rem;
+  padding: 1.3rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(30,60,130,0.07);
+  min-width: 130px;
+  margin-bottom: 1rem;
+}
+.about-number-head {
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: #242273;
+  margin-bottom: 0.5rem;
+}
+.about-number-label {
+  font-size: 1.03rem;
+  color: #3a3d70;
+}
+
+/* Mission & Vision */
+.about-mission-vision {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 2.6rem 0 2.3rem 0;
+}
+.about-mission, .about-vision {
+  flex: 1 1 300px;
+  background: #f7f8fa;
+  border-radius: 1.1rem;
+  box-shadow: 0 2px 12px rgba(30,60,130,0.07);
+  padding: 1.7rem 1.3rem;
+  min-width: 260px;
+}
+.about-mission h2, .about-vision h2 {
+  color: #242273;
+  font-size: 1.45rem;
+  margin-bottom: 0.6rem;
+}
+.about-icon {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 0.45rem;
+}
+
+/* Values Section */
+.about-values {
+  background: #e9f2fd;
+  border-radius: 1.1rem;
+  padding: 2rem 1rem 2.2rem 1rem;
+  margin: 2.3rem 0;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(30,60,130,0.07);
+}
+.about-values h2 {
+  color: #242273;
+  font-size: 1.5rem;
+  margin-bottom: 1.3rem;
+}
+.about-values-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.3rem;
+}
+.about-value-card {
+  background: #fff;
+  border-radius: 0.9rem;
+  box-shadow: 0 2px 10px rgba(30,60,130,0.06);
+  padding: 1.1rem 0.9rem 1.2rem 0.9rem;
+  min-width: 180px;
+  max-width: 230px;
+  text-align: center;
+}
+.about-value-title {
+  font-weight: bold;
+  color: #22397a;
+  margin-bottom: 0.3rem;
+  font-size: 1.04rem;
+}
+.about-value-desc {
+  color: #334;
+  font-size: 0.97rem;
+  margin-bottom: 0.1rem;
+}
+
+/* Why CAFS Section */
+.about-why-cafs {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.about-why-cafs h2 {
+  color: #242273;
+  font-size: 1.5rem;
+  margin-bottom: 1.1rem;
+  text-align: center;
+}
+.about-why-list {
   margin: 0 auto;
-  line-height: 1.7;
+  padding-left: 0;
+  list-style: none;
+  max-width: 750px;
+}
+.about-why-list li {
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+  color: #223;
+  position: relative;
+  padding-left: 1.1em;
+}
+.about-why-label {
+  color: #22397a;
+  font-weight: 600;
+  margin-right: 0.3em;
+}
+.about-why-list li::before {
+  content: "✓";
+  color: #2b1ccb;
+  position: absolute;
+  left: 0;
+  font-size: 1.1em;
+  line-height: 1;
+  top: 2px;
 }
 
 /* Animate on scroll for other about-us sections */
@@ -126,6 +280,30 @@
 }
 
 /* Responsive */
+@media (max-width: 900px) {
+  .about-hero {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.1rem;
+  }
+  .about-hero-img {
+    min-width: 150px;
+  }
+  .about-hero-img img {
+    max-width: 220px;
+  }
+  .about-numbers-section {
+    gap: 1.1rem;
+  }
+  .about-mission-vision {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .about-values-list {
+    gap: 1.2rem;
+  }
+}
+
 @media (max-width: 700px) {
   .about-us-page {
     padding: 1.2rem 0.3rem 1.7rem 0.3rem;
@@ -135,10 +313,16 @@
     padding: 0.2rem 0.5rem;
     font-size: 0.8rem;
   }
-  .about-us-page h1 {
+  .about-hero-text h1 {
     font-size: 1.6rem;
   }
-  .aboutus-content {
+  .about-number-head {
+    font-size: 1.5rem;
+  }
+  .about-values h2, .about-why-cafs h2, .about-mission h2, .about-vision h2 {
+    font-size: 1.1rem;
+  }
+  .about-value-title {
     font-size: 1rem;
   }
 }

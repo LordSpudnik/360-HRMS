@@ -21,7 +21,7 @@ import zensys from "./pages/assets/icons/zensys.png";
 import sbltLogo from "./pages/assets/icons/SBLT.png";
 import svcLogo from "./pages/assets/icons/SVC.png";
 
-import CountUpOnView from "./CountUpOnView";
+import CountUpOnView from "./pages/CountUpOnView";
 import SearchBar from "./pages/SearchBar";
 import Navbar from "./pages/Navbar";
 import Footer from "./pages/Footer";
