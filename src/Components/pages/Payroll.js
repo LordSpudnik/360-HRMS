@@ -126,8 +126,8 @@ export default function Payroll() {
                 {/* Timeline items */}
                 <div className="timeline-item timeline-item-1">
                   <div className="timeline-content">
-                    <div className="timeline-heading">Basic Salary</div>
-                    <div className="timeline-desc">
+                    <div className="timeline-heading1">Basic Salary</div>
+                    <div className="timeline-desc1">
                       Typically 40-50% of the gross salary.<br />
                       It's the core of the salary and<br />
                       forms the basis for other components.
@@ -136,9 +136,9 @@ export default function Payroll() {
                   <div className="timeline-circle">01</div>
                 </div>
                 <div className="timeline-item timeline-item-2">
-                  <div className="timeline-content right">
-                    <div className="timeline-heading">House Rent Allowance (HRA)</div>
-                    <div className="timeline-desc">
+                  <div className="timeline-content">
+                    <div className="timeline-heading2">House Rent Allowance (HRA)</div>
+                    <div className="timeline-desc2">
                       Provided to employees to<br />
                       meet housing expenses.<br />
                       It's usually a percentage<br />
@@ -149,8 +149,8 @@ export default function Payroll() {
                 </div>
                 <div className="timeline-item timeline-item-3">
                   <div className="timeline-content">
-                    <div className="timeline-heading">Conveyance Allowance</div>
-                    <div className="timeline-desc">
+                    <div className="timeline-heading1">Conveyance Allowance</div>
+                    <div className="timeline-desc1">
                       Given to employees to<br />
                       cover transportation costs.
                     </div>
@@ -158,9 +158,9 @@ export default function Payroll() {
                   <div className="timeline-circle">03</div>
                 </div>
                 <div className="timeline-item timeline-item-4">
-                  <div className="timeline-content right">
-                    <div className="timeline-heading">Bonuses and Incentives</div>
-                    <div className="timeline-desc">
+                  <div className="timeline-content">
+                    <div className="timeline-heading2">Bonuses and Incentives</div>
+                    <div className="timeline-desc2">
                       Performance-based pay.
                     </div>
                   </div>
