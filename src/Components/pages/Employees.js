@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import "./Employees.css";
 import {
   FaPhoneAlt, FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaPinterestP
@@ -183,6 +184,7 @@ export default function Employees() {
         </div>
         {/* --- End Employee Monitoring and Reporting Section --- */}
       </motion.div>
+      <Footer />
     </div>
   );
 }

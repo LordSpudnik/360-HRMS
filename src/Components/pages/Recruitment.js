@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { IoLogoFlickr, IoLogoWhatsapp } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
+import Footer from "./Footer";
 
 // Scroll animation hook (same logic as homepage/employees)
 function useScrollAnimation() {
@@ -236,6 +237,7 @@ export default function Recruitment() {
           {/* End Candidate Tracking Section */}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

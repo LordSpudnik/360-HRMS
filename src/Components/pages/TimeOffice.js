@@ -16,6 +16,7 @@ import lateArrivalImg from "./assets/imgs/time office_late.png";
 import overtimeSectionImg from "./assets/imgs/time office_overtime.png";
 import payrollImg from "./assets/imgs/time office_payroll.png";
 import complianceImg from "./assets/imgs/time office_compliance.png";
+import Footer from "./Footer";
 
 function useScrollAnimation() {
   useEffect(() => {
@@ -331,6 +332,7 @@ export default function TimeOffice() {
           {/* --- END Integration & Compliance Section --- */}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

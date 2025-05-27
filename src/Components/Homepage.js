@@ -24,6 +24,7 @@ import CountUpOnView from "./CountUpOnView";
 import SearchBar from "./pages/SearchBar";
 import Navbar from "./pages/Navbar";
 import { useEffect } from "react";
+import Footer from "./pages/Footer";
 
 function useScrollAnimation() {
   useEffect(() => {
@@ -350,6 +351,7 @@ const Homepage = () => {
         </div>
       </section>
       {/* --- End Testimonial Section --- */}
+      <Footer />
     </div>
   );
 };

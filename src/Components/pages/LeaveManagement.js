@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import SearchBar from "./SearchBar";
+import Footer from "./Footer";
 import "./LeaveManagement.css";
 import { FaPhoneAlt, FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
 import { IoLogoFlickr, IoLogoWhatsapp } from "react-icons/io5";
@@ -181,6 +182,7 @@ export default function LeaveManagement() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

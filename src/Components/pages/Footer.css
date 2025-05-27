@@ -1,0 +1,129 @@
+.footer {
+  width: 100%;
+  background: #232b30;
+  color: #eaf7ff;
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4vw;
+  padding: 48px 4vw 32px 4vw;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+.footer-col {
+  flex: 1 1 0;
+  min-width: 220px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.footer-about {
+  flex: 1.7 1 0;
+  min-width: 320px;
+  max-width: 500px;
+  margin-right: 1vw;
+}
+
+.footer-logo {
+  width: 270px;
+  height: auto;
+  margin-bottom: 28px;
+  margin-left: -10px;
+  margin-top: 0;
+  display: block;
+}
+
+.footer-about-text {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #eaf7ff;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.footer-col-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #f4faff;
+  margin-bottom: 18px;
+  margin-top: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.footer-col-content {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #eaf7ff;
+  line-height: 1.6;
+}
+
+.footer-col-content strong {
+  font-weight: 700;
+  color: #fff;
+}
+
+.footer-col-content a {
+  color: #eaf7ff;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.footer-col-content a:hover {
+  color: #e86b4b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 36px 4vw 28px 4vw;
+    align-items: flex-start;
+  }
+  .footer-col,
+  .footer-about {
+    min-width: unset;
+    max-width: 99vw;
+    margin: 0 0 12px 0;
+  }
+  .footer-logo {
+    width: 210px;
+    margin-bottom: 18px;
+  }
+  .footer-col-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .footer-col-content, .footer-about-text {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    padding: 28px 2vw 20px 2vw;
+    gap: 1.3rem;
+  }
+  .footer-logo {
+    width: 140px;
+    margin-bottom: 12px;
+  }
+  .footer-col-title {
+    font-size: 1.18rem;
+  }
+  .footer-col-content, .footer-about-text {
+    font-size: 0.91rem;
+  }
+}

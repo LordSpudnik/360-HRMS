@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { IoLogoFlickr, IoLogoWhatsapp } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
+import Footer from "./Footer";
 
 // Main illustration
 import payrollImage from "./assets/imgs/payroll.png";
@@ -488,6 +489,7 @@ export default function Payroll() {
         {/* End Payroll Tracking Section */}
 
       </div>
+      <Footer />
     </div>
   );
 }
