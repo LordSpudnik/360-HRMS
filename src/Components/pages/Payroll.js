@@ -19,9 +19,10 @@ import salaryDeductionsImg from "./assets/imgs/tax.png";
 function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
-    const hysteresisRatioIn = 0.18;  // When to add (section is at least 18% visible)
-    const hysteresisRatioOut = 0.02; // When to remove (section is less than 2% visible)
-    const observer = new window.IntersectionObserver(
+    const hysteresisRatioIn = 0.18;
+    const hysteresisRatioOut = 0.02;
+
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.intersectionRatio > hysteresisRatioIn) {
@@ -33,11 +34,33 @@ function useScrollAnimation() {
       },
       {
         threshold: [0, 0.02, 0.18, 0.5, 0.8, 1],
-        rootMargin: "0px 0px 0px 0px"
+        rootMargin: "-100px 0px" // Add negative margin to trigger earlier
       }
     );
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+
+    elements.forEach((el) => {
+      // Force check initial state
+      observer.observe(el);
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        el.classList.add('scrolled');
+      }
+    });
+
+    // Add resize/transition listener
+    const resizeHandler = () => {
+      elements.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add('scrolled');
+        }
+      });
+    };
+
+    window.addEventListener('resize', resizeHandler);
+    
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', resizeHandler);
+    };
   }, []);
 }
 

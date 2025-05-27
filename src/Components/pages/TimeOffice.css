@@ -310,12 +310,9 @@ body, html {
     transform 0.8s cubic-bezier(.17,.67,.83,.67);
   will-change: opacity, transform;
   pointer-events: none;
-}
-
-.scroll-animate:not(.scrolled) {
+  /* Add initial state */
   opacity: 0;
   transform: translateY(80px) scale(0.97);
-  pointer-events: none;
 }
 
 .scroll-animate.scrolled {

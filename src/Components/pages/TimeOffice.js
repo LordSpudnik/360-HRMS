@@ -20,12 +20,10 @@ import complianceImg from "./assets/imgs/time office_compliance.png";
 function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
+    const hysteresisRatioIn = 0.18;
+    const hysteresisRatioOut = 0.02;
 
-    // We'll track state for each element to avoid jitter
-    const hysteresisRatioIn = 0.18;  // When to add (section is at least 18% visible)
-    const hysteresisRatioOut = 0.02; // When to remove (section is less than 2% visible)
-
-    const observer = new window.IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.intersectionRatio > hysteresisRatioIn) {
@@ -33,17 +31,37 @@ function useScrollAnimation() {
           } else if (entry.intersectionRatio < hysteresisRatioOut) {
             entry.target.classList.remove('scrolled');
           }
-          // If in between, leave the class as it was (prevents jitter)
         });
       },
       {
         threshold: [0, 0.02, 0.18, 0.5, 0.8, 1],
-        rootMargin: "0px 0px 0px 0px"
+        rootMargin: "-100px 0px" // Add negative margin to trigger earlier
       }
     );
 
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    elements.forEach((el) => {
+      // Force check initial state
+      observer.observe(el);
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        el.classList.add('scrolled');
+      }
+    });
+
+    // Add resize/transition listener
+    const resizeHandler = () => {
+      elements.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add('scrolled');
+        }
+      });
+    };
+
+    window.addEventListener('resize', resizeHandler);
+    
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', resizeHandler);
+    };
   }, []);
 }
 
@@ -97,7 +115,7 @@ export default function TimeOffice() {
             </div>
           </div>
 
-          <h2 className="timeoffice-keyfeatures-title scroll-animate">Key Features</h2>
+          <h2 className="timeoffice-keyfeatures-title">Key Features</h2>
           <div className="timeoffice-features-row">
             {/* Attendance & Shift Management */}
             <div className="timeoffice-feature-card scroll-animate">
