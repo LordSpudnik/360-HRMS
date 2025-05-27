@@ -1,0 +1,144 @@
+.aboutus-root {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #fff 0%, #f7f8fa 100%);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Topbar */
+.topbar {
+  background-color: #d3d7de;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 2rem;
+  font-size: 0.9rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 40px;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+.topbar .contact-info {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.topbar .contact-info span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+.topbar .social-icons {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+.social-icons a {
+  color: #000;
+  font-size: 1.1rem;
+  transition: transform 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+}
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #0077b5;
+  z-index: 2;
+}
+
+/* Ensure Navbar sits just below topbar (topbar height = 40px) */
+.navbar {
+  position: sticky;
+  top: 40px;
+  z-index: 99;
+  margin-top: 0;
+}
+
+/* SearchBar Overlay (reuse your homepage styles) */
+.search-bar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(40, 60, 110, 0.10);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6.5rem;
+}
+.search-bar-modal {
+  background: none;
+}
+
+/* About Us main content */
+.about-us-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem 2rem 2rem;
+  min-height: 80vh;
+  margin-top: 90px; /* 40px for topbar + ~50px for navbar */
+  background: none;
+  opacity: 0;
+  transform: translateY(70px);
+  transition: all 0.8s cubic-bezier(.17,.67,.83,.67);
+}
+
+.about-us-page.scrolled {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-us-page h1 {
+  font-size: 2.4rem;
+  color: #242273;
+  margin-bottom: 1.2rem;
+  font-weight: bold;
+}
+
+.aboutus-content {
+  font-size: 1.2rem;
+  color: #223;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Animate on scroll for other about-us sections */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(70px);
+  transition: all 0.8s cubic-bezier(.17,.67,.83,.67);
+}
+.scroll-animate.scrolled {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .about-us-page {
+    padding: 1.2rem 0.3rem 1.7rem 0.3rem;
+    margin-top: 95px;
+  }
+  .topbar {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  .about-us-page h1 {
+    font-size: 1.6rem;
+  }
+  .aboutus-content {
+    font-size: 1rem;
+  }
+}
