@@ -16,11 +16,8 @@ import complianceImg from "./assets/imgs/employees_compliance.png";
 function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
-
-    // We'll track state for each element to avoid jitter
-    const hysteresisRatioIn = 0.18;  // When to add (section is at least 18% visible)
-    const hysteresisRatioOut = 0.02; // When to remove (section is less than 2% visible)
-
+    const hysteresisRatioIn = 0.18;
+    const hysteresisRatioOut = 0.02;
     const observer = new window.IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -29,7 +26,6 @@ function useScrollAnimation() {
           } else if (entry.intersectionRatio < hysteresisRatioOut) {
             entry.target.classList.remove('scrolled');
           }
-          // If in between, leave the class as it was (prevents jitter)
         });
       },
       {
@@ -37,7 +33,6 @@ function useScrollAnimation() {
         rootMargin: "0px 0px 0px 0px"
       }
     );
-
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
@@ -148,15 +143,14 @@ export default function Employees() {
         {/* --- Employee Monitoring and Reporting Section --- */}
         <div className="emp-monitoring-section scroll-animate">
           <div className="emp-monitoring-main-title">Employee Monitoring and Reporting</div>
-          <div className="emp-monitoring-picture-layout">
-            {/* Row 1: Performance Image + Performance Card */}
-            <div className="emp-monitoring-perf-img">
-              <img src={performanceImg} alt="Performance and Tracking" />
+
+          <div className="emp-monitoring-row">
+            {/* Performance Tracking: image left, card right */}
+            <div className="emp-monitoring-img-col">
+              <img src={performanceImg} alt="Performance and Tracking" className="emp-monitoring-img" />
             </div>
-            <div className="emp-monitoring-engagement-card hoverable">
-              <div className="emp-monitoring-title">
-                Performance and Engagement Tracking
-              </div>
+            <div className="emp-monitoring-text-col">
+              <div className="emp-monitoring-title">Performance and Engagement Tracking</div>
               <div className="emp-monitoring-content">
                 <ul>
                   <li>
@@ -165,11 +159,12 @@ export default function Employees() {
                 </ul>
               </div>
             </div>
-            {/* Row 2: Compliance Card + Compliance Image */}
-            <div className="emp-monitoring-compliance-card hoverable">
-              <div className="emp-monitoring-title">
-                Compliance and Confidentiality
-              </div>
+          </div>
+
+          <div className="emp-monitoring-row">
+            {/* Compliance: card left, image right */}
+            <div className="emp-monitoring-text-col">
+              <div className="emp-monitoring-title">Compliance and Confidentiality</div>
               <div className="emp-monitoring-content">
                 <ul>
                   <li>
@@ -181,13 +176,12 @@ export default function Employees() {
                 </ul>
               </div>
             </div>
-            <div className="emp-monitoring-comp-img">
-              <img src={complianceImg} alt="Compliance and Confidentiality" />
+            <div className="emp-monitoring-img-col">
+              <img src={complianceImg} alt="Compliance and Confidentiality" className="emp-monitoring-img" />
             </div>
           </div>
         </div>
         {/* --- End Employee Monitoring and Reporting Section --- */}
-
       </motion.div>
     </div>
   );

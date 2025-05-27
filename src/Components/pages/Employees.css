@@ -28,26 +28,22 @@ body, html {
   box-sizing: border-box;
   z-index: 100;
 }
-
 .topbar .contact-info {
   display: flex;
   gap: 1.5rem;
   align-items: center;
 }
-
 .topbar .contact-info span {
   display: flex;
   align-items: center;
   gap: 0.3rem;
   white-space: nowrap;
 }
-
 .topbar .social-icons {
   display: flex;
   gap: 0.7rem;
   align-items: center;
 }
-
 .social-icons a {
   color: #000;
   font-size: 1.1rem;
@@ -55,13 +51,11 @@ body, html {
   display: flex;
   align-items: center;
 }
-
 .social-icons a:hover {
   transform: scale(1.2);
   color: #0077b5;
   z-index: 2;
 }
-
 .navbar {
   background-color: #e7f1ff;
   display: flex;
@@ -102,7 +96,6 @@ body, html {
   overflow: hidden;
   padding-top: 7rem;
 }
-
 .emp-main {
   max-width: 1200px;
   margin: 0 auto;
@@ -113,7 +106,6 @@ body, html {
   border-radius: 2rem;
   box-shadow: 0 12px 24px rgba(10, 40, 90, 0.04);
 }
-
 .emp-title {
   font-size: 2rem;
   text-align: center;
@@ -123,7 +115,6 @@ body, html {
   margin-top: 0;
   letter-spacing: 0.01em;
 }
-
 .emp-desc {
   color: #333;
   font-size: 1.08rem;
@@ -133,7 +124,6 @@ body, html {
   margin-left: auto;
   margin-right: auto;
 }
-
 .emp-section-title {
   color: #242273;
   font-size: 1.36rem;
@@ -144,9 +134,97 @@ body, html {
   letter-spacing: 0.01em;
 }
 
-/* --- Employee Monitoring and Reporting Section --- */
+/* --- Employee Cards --- */
+.emp-card-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.emp-card {
+  background: #eceffa;
+  border: 2.5px solid #b8bfd3;
+  border-radius: 1rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.09);
+  padding: 2.2rem 1.3rem 2rem 1.3rem;
+  text-align: center;
+  max-width: 340px;
+  min-width: 280px;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 
+    box-shadow 0.3s,
+    border-color 0.23s,
+    transform 0.33s;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  will-change: transform, opacity;
+}
+.emp-card.scrolled {
+  opacity: 1;
+  transform: translateY(0) scale(1.03);
+  box-shadow: 0 8px 18px rgba(0, 76, 255, 0.08);
+  transition:
+    transform 0.7s cubic-bezier(.17,.67,.83,.67),
+    opacity 0.8s;
+}
+.emp-card:hover {
+  box-shadow: 0 14px 36px 0 rgba(40,130,255,0.13), 0 0 0 4px #24227319;
+  border-color: #242273;
+  transform: translateY(-7px) scale(1.045);
+  z-index: 2;
+}
+.emp-card-icon {
+  font-size: 2.5rem;
+  color: #222a7b;
+  margin-bottom: 1.1rem;
+  margin-top: 0.2rem;
+}
+.emp-card-title {
+  font-size: 1.09rem;
+  color: #1a2a6c;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 0.1rem;
+}
+.emp-card-text {
+  color: #27374d;
+  font-size: 0.98rem;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.38;
+  margin-top: 0.1rem;
+}
+@media (max-width: 1100px) {
+  .emp-card-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.7rem;
+  }
+  .emp-main {
+    padding: 2.6rem 0.5rem 1.3rem 0.5rem;
+  }
+}
+@media (max-width: 700px) {
+  .emp-card {
+    min-width: 140px;
+    width: 98vw;
+    max-width: 100vw;
+    min-height: unset;
+    padding: 1.5rem 0.6rem 1.2rem 0.6rem;
+  }
+}
+
+/* --- Employee Monitoring & Reporting Section --- */
 .emp-monitoring-section {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 3.5rem auto 2.5rem auto;
   background: #fcfcfd;
   border-radius: 1.3rem;
@@ -172,61 +250,56 @@ body, html {
   font-family: 'Georgia', 'Times New Roman', Times, serif;
 }
 
-/* Custom 2x2 grid layout for the image */
-.emp-monitoring-picture-layout {
-  display: grid;
-  grid-template-columns: 410px 1fr;
-  grid-template-rows: 220px 220px;
-  gap: 40px 35px;
-  grid-template-areas:
-    "perfimg perftrack"
-    "compliancebox compimg";
-  background: none;
-  min-height: 480px;
-  align-items: center;
-  justify-items: center;
-  position: relative;
-}
-
-.emp-monitoring-perf-img {
-  grid-area: perfimg;
+/* Flex row for monitoring section */
+.emp-monitoring-row {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 100%;
-  height: 220px;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 2.7rem;
 }
-.emp-monitoring-perf-img img {
-  width: 320px;
-  max-width: 100%;
-  object-fit: contain;
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 2px 18px #d6dcf7a0;
-  margin-top: 0;
-  margin-left: 0;
+.emp-monitoring-row:last-child {
   margin-bottom: 0;
-  padding: 0;
+}
+.emp-monitoring-row.reverse {
+  flex-direction: row-reverse;
 }
 
-.emp-monitoring-engagement-card {
-  grid-area: perftrack;
+.emp-monitoring-img-col {
+  flex: 1.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 180px;
+  max-width: 320px;
+  margin: 0;
+}
+.emp-monitoring-img {
+  width: 90%;
+  max-width: 260px;
+  border-radius: 10px;
+  background: #ece9e3;
+  box-shadow: 0 6px 24px 0 rgba(100,110,140,0.08);
+  display: block;
+  margin: 0 auto;
+}
+
+.emp-monitoring-text-col {
+  flex: 2.2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 320px;
+  max-width: 700px;
+  padding: 0 1rem;
   background: #ededf5;
   border: 2.5px solid #6e64b8;
   border-radius: 1rem;
   box-shadow: 0 2px 18px #8582a122;
-  padding: 1.1rem 2rem 1.1rem 2rem;
-  color: #241c64;
   font-size: 1.13rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
   font-family: 'Georgia', 'Times New Roman', Times, serif;
   font-weight: 500;
-  width: 100%;
-  max-width: 670px;
-  min-width: 320px;
   transition: box-shadow 0.23s, border-color 0.23s, transform 0.33s;
 }
 .emp-monitoring-title {
@@ -236,7 +309,7 @@ body, html {
   margin-bottom: 0.4rem;
   font-family: 'Georgia', 'Times New Roman', Times, serif;
 }
-.emp-monitoring-engagement-card ul {
+.emp-monitoring-content ul {
   margin: 0.4rem 0 0 1.1rem;
   padding-left: 1.2em;
   font-size: 1.06rem;
@@ -244,90 +317,39 @@ body, html {
   font-family: 'Georgia', 'Times New Roman', Times, serif;
   list-style-type: disc;
 }
-
-/* Compliance box */
-.emp-monitoring-compliance-card {
-  grid-area: compliancebox;
-  background: #ededf5;
-  border: 2.5px solid #6e64b8;
-  border-radius: 1rem;
-  box-shadow: 0 2px 18px #8582a122;
-  padding: 1.1rem 2rem 1.1rem 2rem;
-  color: #241c64;
-  font-size: 1.13rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  font-family: 'Georgia', 'Times New Roman', Times, serif;
-  font-weight: 500;
-  width: 100%;
-  max-width: 670px;
-  min-width: 320px;
-  transition: box-shadow 0.23s, border-color 0.23s, transform 0.33s;
-}
-.emp-monitoring-compliance-card ul {
-  margin: 0.4rem 0 0 1.1rem;
-  padding-left: 1.2em;
-  font-size: 1.06rem;
-  color: #222;
-  font-family: 'Georgia', 'Times New Roman', Times, serif;
-  list-style-type: disc;
-}
-.emp-monitoring-comp-img {
-  grid-area: compimg;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  width: 100%;
-  height: 220px;
-}
-.emp-monitoring-comp-img img {
-  width: 280px;
-  max-width: 100%;
-  object-fit: contain;
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 2px 18px #d6dcf7a0;
-  margin-bottom: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding: 0;
+.emp-monitoring-content li {
+  margin-bottom: 0.2rem;
 }
 
-/* Hover effects ONLY on text cards */
-.hoverable:hover {
+.emp-monitoring-text-col:hover {
   box-shadow: 0 8px 32px 0 #b0a5e2ad, 0 0 0 4px #7e74ba33;
   border-color: #241c64;
   transform: translateY(-6px) scale(1.025);
   z-index: 10;
 }
 
+/* Responsive for monitoring section */
 @media (max-width: 1200px) {
   .emp-monitoring-section {
     padding: 1.3rem 0.5rem 1.5rem 0.5rem;
   }
-  .emp-monitoring-picture-layout {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 170px 170px;
-    gap: 24px 10px;
+  .emp-monitoring-img-col {
+    min-width: 100px;
+    max-width: 160px;
   }
-  .emp-monitoring-perf-img img,
-  .emp-monitoring-comp-img img {
-    width: 160px;
-    max-width: 95vw;
+  .emp-monitoring-img {
+    max-width: 140px;
   }
-  .emp-monitoring-engagement-card,
-  .emp-monitoring-compliance-card {
-    font-size: 1.01rem;
-    padding: 0.7rem 1rem 0.7rem 1rem;
+  .emp-monitoring-text-col {
     min-width: 180px;
+    max-width: 99vw;
+    font-size: 1.01rem;
+    padding: 0.7rem 0.9rem;
   }
   .emp-monitoring-title {
     font-size: 1.08rem;
   }
 }
-
 @media (max-width: 900px) {
   .emp-monitoring-section {
     padding: 0.7rem 0.2rem 1.1rem 0.2rem;
@@ -335,31 +357,36 @@ body, html {
   .emp-monitoring-main-title {
     font-size: 1.2rem;
   }
-  .emp-monitoring-picture-layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, auto);
-    gap: 1.3rem 0;
-    min-height: unset;
-  }
-  .emp-monitoring-perf-img,
-  .emp-monitoring-comp-img,
-  .emp-monitoring-engagement-card,
-  .emp-monitoring-compliance-card {
-    justify-content: center;
+  .emp-monitoring-row,
+  .emp-monitoring-row.reverse {
+    flex-direction: column !important;
+    gap: 1.3rem;
     align-items: center;
-    margin: 0 auto;
-    max-width: 98vw;
-    min-width: unset;
-    width: 100%;
+    justify-content: flex-start;
   }
-  .emp-monitoring-perf-img img,
-  .emp-monitoring-comp-img img {
-    max-width: 130px;
-    padding: 0.5rem;
+  .emp-monitoring-img-col {
+    min-width: 0;
+    max-width: 120px;
+  }
+  .emp-monitoring-img {
+    max-width: 100px;
+  }
+  .emp-monitoring-text-col {
     width: 100%;
+    min-width: 0;
+    max-width: 99vw;
+    padding: 0.7rem 0.2rem;
+    align-items: center;
+    text-align: center;
+  }
+  .emp-monitoring-content ul {
+    padding-left: 0.9em;
+  }
+  .emp-monitoring-title {
+    text-align: center;
+    padding-left: 0;
   }
 }
-
 @media (max-width: 600px) {
   .emp-monitoring-section {
     padding: 0.4rem 0.05rem 0.5rem 0.05rem;
@@ -367,126 +394,36 @@ body, html {
   .emp-monitoring-main-title {
     font-size: 1.01rem;
   }
-  .emp-monitoring-engagement-card,
-  .emp-monitoring-compliance-card {
+  .emp-monitoring-text-col {
     font-size: 0.91rem;
     padding: 0.42rem 0.42rem 0.42rem 0.55rem;
     margin: 0 0 0 0.2rem;
     min-width: unset;
     max-width: 100vw;
   }
-  .emp-monitoring-perf-img img,
-  .emp-monitoring-comp-img img {
-    max-width: 90px;
-    padding: 0.2rem;
-    width: 100%;
+  .emp-monitoring-img-col {
+    max-width: 80px;
+  }
+  .emp-monitoring-img {
+    max-width: 70px;
   }
 }
 
-/* --- Employee Cards (unchanged) --- */
-.emp-card-row {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
-  margin: 0 auto;
-}
-
-.emp-card {
-  background: #eceffa;
-  border: 2.5px solid #b8bfd3;
-  border-radius: 1rem;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.09);
-  padding: 2.2rem 1.3rem 2rem 1.3rem;
-  text-align: center;
-  max-width: 340px;
-  min-width: 280px;
-  min-height: 420px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: 
-    box-shadow 0.3s,
-    border-color 0.23s,
-    transform 0.33s;
-  position: relative;
-  opacity: 0;
-  transform: translateY(50px) scale(0.95);
-  will-change: transform, opacity;
-}
-
-.emp-card.scrolled {
-  opacity: 1;
-  transform: translateY(0) scale(1.03);
-  box-shadow: 0 8px 18px rgba(0, 76, 255, 0.08);
+/* --- Animations --- */
+.scroll-animate {
   transition:
-    transform 0.7s cubic-bezier(.17,.67,.83,.67),
-    opacity 0.8s;
+    opacity 0.8s cubic-bezier(.17,.67,.83,.67),
+    transform 0.8s cubic-bezier(.17,.67,.83,.67);
+  will-change: opacity, transform;
+  pointer-events: none;
 }
-
-.main-card-width {
-  min-width: 1150px;
-  max-width: 1150px;
-  width: 1150px;
+.scroll-animate:not(.scrolled) {
+  opacity: 0;
+  transform: translateY(80px) scale(0.97);
+  pointer-events: none;
 }
-
-@media (max-width: 1150px) {
-  .main-card-width {
-    min-width: 260px;
-    max-width: 100vw;
-    width: 100%;
-  }
-}
-
-@media (max-width: 700px) {
-  .main-card-width {
-    min-width: 140px;
-    width: 98vw;
-    max-width: 100vw;
-  }
-}
-
-.emp-card:hover {
-  box-shadow: 0 14px 36px 0 rgba(40,130,255,0.13), 0 0 0 4px #24227319;
-  border-color: #242273;
-  transform: translateY(-7px) scale(1.045);
-  z-index: 2;
-}
-
-.emp-card-icon {
-  font-size: 2.5rem;
-  color: #222a7b;
-  margin-bottom: 1.1rem;
-  margin-top: 0.2rem;
-}
-
-.emp-card-title {
-  font-size: 1.09rem;
-  color: #1a2a6c;
-  font-family: 'Georgia', 'Times New Roman', Times, serif;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  margin-top: 0.1rem;
-}
-
-.emp-card-text {
-  color: #27374d;
-  font-size: 0.98rem;
-  font-family: 'Georgia', 'Times New Roman', Times, serif;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  line-height: 1.38;
-  margin-top: 0.1rem;
-}
-
-@media (max-width: 1100px) {
-  .emp-card-row {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.7rem;
-  }
-  .emp-main {
-    padding: 2.6rem 0.5rem 1.3rem 0.5rem;
-  }
+.scroll-animate.scrolled {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
 }
