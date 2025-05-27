@@ -299,7 +299,7 @@ export default function Payroll() {
                       <th>HRA</th>
                       <th>Conveyance Allowance</th>
                       <th>Special Allowance</th>
-                      <th>Gross Salary</th>
+                      <th>Total Earnings</th>
                       <th>PF (12%)</th>
                       <th>ESI (0.75%)</th>
                       <th>PT</th>
