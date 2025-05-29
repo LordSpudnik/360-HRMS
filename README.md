@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# 360-HRMS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+360-HRMS is a comprehensive Human Resource Management System developed as part of my internship at CAFS Infotech for one of their clients. This web application streamlines and automates various HR processes, making it easier for organizations to manage employee information, attendance, payroll, leave requests, and more.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Employee Management:** Add, update, and manage employee records with detailed profiles.
+- **Attendance Tracking:** Record and monitor daily attendance, with support for check-in/check-out times.
+- **Leave Management:** Request, approve, and track different types of employee leaves.
+- **Payroll Management:** Generate payroll based on attendance and leave data, with customizable salary components.
+- **Role-Based Access:** Different user roles (Admin, HR, Employee) with permissions tailored to their responsibilities.
+- **Reporting & Analytics:** Generate and export reports on attendance, payroll, and employee data.
+- **Notifications:** Automated email and in-app notifications for leave status, payroll, and important announcements.
+- **Responsive Design:** Works seamlessly across desktops, tablets, and mobile devices.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **JavaScript:** Core application logic, handling interactivity and integration with backend APIs.
+- **CSS:** Custom styling for a modern and intuitive user interface.
+- **HTML:** Structure and layout of all web pages.
+- *(If you used any frameworks or libraries such as React, Node.js, Express, MongoDB, MySQL, etc., please add them here)*
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Deployment
 
-### `npm test`
+You can access the live deployment of this project at the following link:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**[Deployment Link](#)**  
+*https://360-hrms.netlify.app/*
 
-### `npm run build`
+## About
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project was developed as an internship assignment at **CAFS Infotech** for one of their clients. The goal was to build a robust, scalable, and user-friendly HRMS to digitize and optimize HR processes.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to contribute or raise issues for any improvements or feature requests!
