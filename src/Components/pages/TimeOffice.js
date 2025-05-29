@@ -19,59 +19,61 @@ import payrollImg from "./assets/imgs/time office_payroll.png";
 import complianceImg from "./assets/imgs/time office_compliance.png";
 import Footer from "./Footer";
 
+/**
+ * Ensures all .scroll-animate elements are visible ("scrolled") if initially in view,
+ * and when the page gains focus (e.g., after tab switch).
+ * Fixes: Content not appearing after tab switch until scroll.
+ */
 function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
-    const observer = new IntersectionObserver(
+    const hysteresisRatioIn = 0.18;
+    const hysteresisRatioOut = 0.02;
+    const observer = new window.IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
-          const scrollDirection = lastScrollY > window.scrollY ? 'up' : 'down';
-          const viewportThreshold = scrollDirection === 'up' ? 0.15 : 0.25;
-
-          if (entry.intersectionRatio > viewportThreshold) {
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio > hysteresisRatioIn) {
             entry.target.classList.add('scrolled');
-          } else if (entry.intersectionRatio < 0.1) {
+          } else if (entry.intersectionRatio < hysteresisRatioOut) {
             entry.target.classList.remove('scrolled');
           }
         });
       },
       {
-        threshold: [0, 0.1, 0.15, 0.25, 0.5, 1],
-        rootMargin: "0px 0px 100px 0px" // 100px bottom buffer
+        threshold: [0, 0.02, 0.18, 0.5, 0.8, 1],
+        rootMargin: "0px 0px 0px 0px"
       }
     );
 
-    const handleScroll = () => {
-      lastScrollY = window.scrollY;
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          ticking = false;
-        });
-        ticking = true;
-      }
+    // Observe all .scroll-animate elements
+    elements.forEach((el) => observer.observe(el));
+
+    // Helper: checks all .scroll-animate elements and adds .scrolled if in view
+    const ensureVisibleElements = () => {
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        // If any part of element is visible in viewport, add scrolled
+        if (
+          rect.bottom > 0 &&
+          rect.top < (window.innerHeight || document.documentElement.clientHeight)
+        ) {
+          el.classList.add("scrolled");
+        }
+      });
     };
 
-    elements.forEach(el => {
-      // Only observe elements not initially in view
-      if (el.getBoundingClientRect().top > window.innerHeight) {
-        observer.observe(el);
-      } else {
-        el.classList.add('scrolled');
-      }
-    });
+    // On mount, ensure visible elements are activated
+    ensureVisibleElements();
 
-    window.addEventListener('scroll', handleScroll);
+    // On window focus (e.g. tab switch), ensure visible elements are activated
+    window.addEventListener("focus", ensureVisibleElements);
+
     return () => {
       observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("focus", ensureVisibleElements);
     };
   }, []);
 }
-
-
 
 export default function TimeOffice() {
   useScrollAnimation();
@@ -117,13 +119,13 @@ export default function TimeOffice() {
             <h1 className="timeoffice-title">Time Office</h1>
           </div>
           <div className="timeoffice-desc scroll-animate">
-            The Time Office in our company is<br/>
-            responsible for monitoring employee attendance,<br/>
-            work hours, and leave records.<br/>
-            It ensures accurate tracking through bio-metric systems<br/>
-            and attendance software,<br/>
-            supporting payroll processing and compliance with company policies.<br/>
-            This function helps maintain discipline,<br/>
+            The Time Office in our company is<br />
+            responsible for monitoring employee attendance,<br />
+            work hours, and leave records.<br />
+            It ensures accurate tracking through bio-metric systems<br />
+            and attendance software,<br />
+            supporting payroll processing and compliance with company policies.<br />
+            This function helps maintain discipline,<br />
             transparency, and efficient workforce management.
             <div className="timeoffice-img-illus scroll-animate">
               <img src={timeOfficeImage} alt="Time Office illustration" className="timeoffice-img-main" />
@@ -137,12 +139,12 @@ export default function TimeOffice() {
               <div className="timeoffice-feature-icon">
                 <img src={attendanceIcon} alt="Attendance & Shift Icon" className="timeoffice-feature-img" />
               </div>
-              <div className="timeoffice-feature-title">Attendance &<br/>Shift Management</div>
+              <div className="timeoffice-feature-title">Attendance &<br />Shift Management</div>
               <div className="timeoffice-feature-desc">
-                Tracks employee check-in/out,<br/>
-                manages shifts,<br/>
-                handles late/early logins,<br/>
-                and supports biometric<br/>
+                Tracks employee check-in/out,<br />
+                manages shifts,<br />
+                handles late/early logins,<br />
+                and supports biometric<br />
                 or manual attendance.
               </div>
             </div>
@@ -153,9 +155,9 @@ export default function TimeOffice() {
               </div>
               <div className="timeoffice-feature-title">Overtime Management</div>
               <div className="timeoffice-feature-desc">
-                Allows approvals,<br/>
-                balance tracking, and logs<br/>
-                overtime hours for<br/>
+                Allows approvals,<br />
+                balance tracking, and logs<br />
+                overtime hours for<br />
                 payroll integration.
               </div>
             </div>
@@ -164,11 +166,11 @@ export default function TimeOffice() {
               <div className="timeoffice-feature-icon">
                 <img src={reportIcon} alt="Reports Icon" className="timeoffice-feature-img" />
               </div>
-              <div className="timeoffice-feature-title">Employee Self-Service<br/>& Reports</div>
+              <div className="timeoffice-feature-title">Employee Self-Service<br />& Reports</div>
               <div className="timeoffice-feature-desc">
-                Employees can regularize attendance,<br/>
-                view history, and generate<br/>
-                reports for attendance,<br/>
+                Employees can regularize attendance,<br />
+                view history, and generate<br />
+                reports for attendance,<br />
                 leave, and shift trends.
               </div>
             </div>
@@ -236,29 +238,29 @@ export default function TimeOffice() {
                 <div className="od-step-block">
                   <div className="od-step-title">Pre-Approval Required</div>
                   <div className="od-step-desc">
-                    The employee should inform their<br/>
-                    reporting manager or HR in advance about<br/>
-                    the need for OD and mention the reason,<br/>
+                    The employee should inform their<br />
+                    reporting manager or HR in advance about<br />
+                    the need for OD and mention the reason,<br />
                     date, time, and expected duration.
                   </div>
                 </div>
                 <div className="od-step-block">
-                  <br/><br/><br/>
+                  <br /><br /><br />
                   <div className="od-step-title">Get Manager/HR Approval</div>
                   <div className="od-step-desc">
-                    The OD request must be approved by<br/>
-                    the immediate manager or HR.<br/>
-                    Without approval, it may be considered<br/>
+                    The OD request must be approved by<br />
+                    the immediate manager or HR.<br />
+                    Without approval, it may be considered<br />
                     a leave or absence.
                   </div>
                 </div>
                 <div className="od-step-block">
-                  <br/><br/><br/>
+                  <br /><br /><br />
                   <div className="od-step-title">Post-OD Reporting</div>
                   <div className="od-step-desc">
-                    Submit a brief report confirming<br/>
-                    the activity completed.<br/>
-                    Managers may request feedback,<br/>
+                    Submit a brief report confirming<br />
+                    the activity completed.<br />
+                    Managers may request feedback,<br />
                     especially for client visits or external representation.
                   </div>
                 </div>
@@ -279,23 +281,23 @@ export default function TimeOffice() {
               </div>
               <div className="od-step-right">
                 <div className="od-step-block">
-                  <br/><br/><br/><br/><br/><br/><br/>
+                  <br /><br /><br /><br /><br /><br /><br />
                   <div className="od-step-title">Submit OD Request</div>
                   <div className="od-step-desc">
-                    Fill out the OD request form<br/>
-                    (manual or digital) and include:<br/>
-                    Employee name and ID, Department<br/>
-                    and designation, Date and time of OD,<br/>
-                    Purpose of OD, Venue (if applicable),<br/>
+                    Fill out the OD request form<br />
+                    (manual or digital) and include:<br />
+                    Employee name and ID, Department<br />
+                    and designation, Date and time of OD,<br />
+                    Purpose of OD, Venue (if applicable),<br />
                     Approving authority's name
                   </div>
                 </div>
                 <div className="od-step-block">
-                  <br/><br/><br/>
+                  <br /><br /><br />
                   <div className="od-step-title">Marking OD in Attendance System</div>
                   <div className="od-step-desc">
-                    The OD should be recorded separately<br/>
-                    (as "On Duty" instead of Absent)<br/>
+                    The OD should be recorded separately<br />
+                    (as "On Duty" instead of Absent)<br />
                     in the HRMS portal
                   </div>
                 </div>
@@ -303,7 +305,7 @@ export default function TimeOffice() {
             </div>
           </div>
           {/* --- END OD SECTION --- */}
-          
+
           {/* --- Integration & Compliance Section --- */}
           <div className="timeoffice-integration-compliance-section">
             {/* Integration with Payroll: TEXT LEFT, IMAGE RIGHT */}
