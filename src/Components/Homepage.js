@@ -185,7 +185,7 @@ const Homepage = () => {
 
       {/* --- Scroll-animated Why Smart HRMS Works Section --- */}
       <section className="why-hrms-section scroll-animate">
-        <h2 className="why-hrms-title">From Chaos to Clarity:<br />Why Smart HRMS Works</h2>
+        <h2 className="why-hrms-title">From Chaos to Clarity:<br />Why 360 HRMS Works</h2>
         <div className="why-hrms-cards">
           <div className="why-hrms-card">
             <div className="why-hrms-icon">📈</div>
@@ -325,25 +325,25 @@ const Homepage = () => {
           <div className="testimonial-card">
             <FaQuoteLeft className="testimonial-quote-icon" />
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              They've helped us stay ahead of the curve in our industry.
             </p>
           </div>
           <div className="testimonial-card">
             <FaQuoteLeft className="testimonial-quote-icon" />
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              Working with them has streamlined our processes and boosted productivity.
             </p>
           </div>
           <div className="testimonial-card">
             <FaQuoteLeft className="testimonial-quote-icon" />
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              Communication with them is always clear and transparent.
             </p>
           </div>
           <div className="testimonial-card">
             <FaQuoteLeft className="testimonial-quote-icon" />
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              Their innovative approach has helped us stay ahead of the competition.
             </p>
           </div>
         </div>

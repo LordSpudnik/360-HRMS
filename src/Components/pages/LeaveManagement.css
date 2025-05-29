@@ -508,3 +508,129 @@ body, html {
     padding: 0.9rem 0.6rem;
   }
 }
+
+.leave-table-section {
+  margin: 2.5rem auto 0 auto;
+  padding: 1.5rem 0 2.5rem 0;
+  max-width: 1300px;
+  width: 100%;
+  background: none;
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 32px 0 rgba(50, 60, 100, 0.10);
+  transition: box-shadow 0.4s, border-color 0.3s;
+  opacity: 0;
+  transform: translateY(80px) scale(0.97);
+  will-change: opacity, transform;
+}
+
+.leave-table-section.scrolled {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: all 0.7s cubic-bezier(.17,.67,.83,.67);
+}
+
+.leave-table-heading {
+  text-align: center;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #241c64;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+}
+
+.leave-table-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1100px;
+  padding: 1.2rem 0 0 0;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  background: none;
+  border-radius: 18px;
+}
+
+.leave-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f7f9fa;
+  border-radius: 16px;
+  overflow: hidden;
+  font-size: 1.10rem;
+  box-shadow: 0 3px 18px 0 rgba(100,110,140,0.06);
+  min-width: 900px;
+}
+
+.leave-table th, .leave-table td {
+  border: 1px solid #e3e5ef;
+  padding: 1.15rem 1.1rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.leave-table th {
+  background: #e4e7ee;
+  color: #241c64;
+  font-size: 1.12rem;
+  font-weight: bold;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+.leave-table td {
+  background: #f7f9fa;
+  color: #23205a;
+  font-weight: 500;
+}
+
+.leave-table tr:nth-child(even) td {
+  background: #f0f3f8;
+}
+
+@media (max-width: 1100px) {
+  .leave-table-wrapper {
+    max-width: 700px;
+  }
+  .leave-table th, .leave-table td {
+    padding: 0.7rem 0.51rem;
+    font-size: 1.01rem;
+  }
+  .leave-table-heading {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .leave-table-wrapper {
+    max-width: 98vw;
+    padding: 1.2rem 0 0 0;
+    overflow-x: auto;
+  }
+  .leave-table {
+    font-size: 0.95rem;
+    min-width: 650px;
+  }
+}
+
+@media (max-width: 700px) {
+  .leave-table-section {
+    padding: 0.5rem 0 0 0;
+    border-radius: 0.7rem;
+  }
+  .leave-table {
+    font-size: 0.81rem;
+    min-width: 350px;
+  }
+  .leave-table th,
+  .leave-table td {
+    padding: 0.6rem 0.4rem;
+  }
+  .leave-table-heading {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+}

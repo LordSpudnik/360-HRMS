@@ -417,7 +417,7 @@ export default function Payroll() {
                 <div className="payroll-step-title">Statutory Compliance</div>
                 <div className="payroll-step-desc">
                   Ensuring timely deposit of<br />
-                  PF, ESI, TDS, and<br />
+                  PF, ESI, PT, TDS, and<br />
                   filing necessary returns.
                 </div>
               </div>

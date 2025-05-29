@@ -306,6 +306,52 @@ export default function TimeOffice() {
           </div>
           {/* --- END OD SECTION --- */}
 
+          {/* --- ATTENDANCE TABLE SECTION --- */}
+          <div className="attendance-table-section scroll-animate">
+            <h2 className="attendance-table-heading">Sample Attendance Data</h2>
+            <div className="attendance-table-wrapper">
+              <table className="attendance-table">
+                <thead>
+                  <tr>
+                    <th>Employee ID</th>
+                    <th>Date</th>
+                    <th>Check-In Time</th>
+                    <th>Check-Out Time</th>
+                    <th>Total Hours</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>101</td>
+                    <td>2025-05-28</td>
+                    <td>09:05 AM</td>
+                    <td>05:45 PM</td>
+                    <td>8.7 hrs</td>
+                    <td>Present</td>
+                  </tr>
+                  <tr>
+                    <td>102</td>
+                    <td>2025-05-28</td>
+                    <td>10:15 AM</td>
+                    <td>04:00 PM</td>
+                    <td>5.75 hrs</td>
+                    <td>Late Entry</td>
+                  </tr>
+                  <tr>
+                    <td>103</td>
+                    <td>2025-05-28</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>0 hrs</td>
+                    <td>Absent</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          {/* --- END ATTENDANCE TABLE SECTION --- */}
+
           {/* --- Integration & Compliance Section --- */}
           <div className="timeoffice-integration-compliance-section">
             {/* Integration with Payroll: TEXT LEFT, IMAGE RIGHT */}

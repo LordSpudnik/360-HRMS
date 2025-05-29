@@ -139,6 +139,67 @@ export default function Employees() {
               </div>
             </div>
           </div>
+
+          {/* --- Employee Table Section --- */}
+          <div className="emp-table-section scroll-animate">
+            <h2 className="employee-table-heading">Sample Employee Data</h2>
+            <div className="emp-table-wrapper">
+              <table className="employee-table">
+                <thead>
+                  <tr>
+                    <th>Employee ID</th>
+                    <th>Full Name</th>
+                    <th>Date Of Birth</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                    <th>Department</th>
+                    <th>Position</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>101</td>
+                    <td>Alice Johnson</td>
+                    <td>1990-05-12</td>
+                    <td>
+                      <a href="mailto:alice.johnson@xyz.com" className="emp-table-link">alice.johnson@xyz.com</a>
+                    </td>
+                    <td>9876543210</td>
+                    <td>123 Maple St,<br />New York, NY</td>
+                    <td>HR</td>
+                    <td>HR Manager</td>
+                  </tr>
+                  <tr>
+                    <td>102</td>
+                    <td>Bob Smith</td>
+                    <td>1985-09-30</td>
+                    <td>
+                      <a href="mailto:bob.smith@xyz.com" className="emp-table-link">bob.smith@xyz.com</a>
+                    </td>
+                    <td>9123456780</td>
+                    <td>456 Oak Rd,<br />Chicago, IL</td>
+                    <td>IT</td>
+                    <td>Software Engg.</td>
+                  </tr>
+                  <tr>
+                    <td>103</td>
+                    <td>Clara<br />Fernandez</td>
+                    <td>1993-02-17</td>
+                    <td>
+                      <a href="mailto:clara.f@xyz.com" className="emp-table-link">clara.f@xyz.com</a>
+                    </td>
+                    <td>9988776655</td>
+                    <td>789 Pine Ave,<br />Austin, TX</td>
+                    <td>Marketing</td>
+                    <td>Digital Analyst</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          {/* --- End Employee Table Section --- */}
+
         </div>
 
         {/* --- Employee Monitoring and Reporting Section --- */}

@@ -138,6 +138,60 @@ export default function LeaveManagement() {
           </div>
         </div>
 
+        {/* Leave Table Section */}
+        <div className="leave-table-section scroll-animate">
+          <h2 className="leave-table-heading">Sample Leave Data</h2>
+          <div className="leave-table-wrapper">
+            <table className="leave-table">
+              <thead>
+                <tr>
+                  <th>Leave ID</th>
+                  <th>Employee ID</th>
+                  <th>Leave Type</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Total Days</th>
+                  <th>Leave Status</th>
+                  <th>Reason</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>L001</td>
+                  <td>101</td>
+                  <td>Sick Leave</td>
+                  <td>2025-05-20</td>
+                  <td>2025-05-22</td>
+                  <td>3</td>
+                  <td>Approved</td>
+                  <td>Flu recovery</td>
+                </tr>
+                <tr>
+                  <td>L002</td>
+                  <td>102</td>
+                  <td>Casual Leave</td>
+                  <td>2025-06-01</td>
+                  <td>2025-06-02</td>
+                  <td>2</td>
+                  <td>Pending</td>
+                  <td>Personal errand</td>
+                </tr>
+                <tr>
+                  <td>L003</td>
+                  <td>103</td>
+                  <td>Earned Leave</td>
+                  <td>2025-06-10</td>
+                  <td>2025-06-15</td>
+                  <td>6</td>
+                  <td>Rejected</td>
+                  <td>Vacation request</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {/* End Leave Table Section */}
+
         {/* Leave Approval Workflow */}
         <div className="leave-workflow-section scroll-animate">
           <h2 className="leave-workflow-title">Leave Approval Workflow</h2>
