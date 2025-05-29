@@ -125,7 +125,7 @@ export default function Payroll() {
                   <span className="feature-title">Statutory Compliance Management</span>
                   <ul>
                     <li>
-                      Handles PF, ESI, TDS, and other legal deductions with automated filings and reports.
+                      Handles PF, ESI, PT, TDS, and other legal deductions with automated filings and reports.
                     </li>
                   </ul>
                 </li>
