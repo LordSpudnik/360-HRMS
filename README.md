@@ -18,14 +18,13 @@
 - **JavaScript:** Core application logic, handling interactivity and integration with backend APIs.
 - **CSS:** Custom styling for a modern and intuitive user interface.
 - **HTML:** Structure and layout of all web pages.
-- *(If you used any frameworks or libraries such as React, Node.js, Express, MongoDB, MySQL, etc., please add them here)*
+- **React:** Foundational framework for building the user interface.
 
 ## Deployment
 
 You can access the live deployment of this project at the following link:
 
-**[Deployment Link](#)**  
-*https://360-hrms.netlify.app/*
+**[Deployment Link](https://360-hrms.netlify.app/)**  
 
 ## About
 
