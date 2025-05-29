@@ -226,7 +226,7 @@ const Homepage = () => {
             <div className="why-hrms-icon">🗄️</div>
             <div className="why-hrms-card-title">Scalable &<br />Customizable</div>
             <div className="why-hrms-card-desc">
-              Grows with your organization and can be tailored to meet the specific needs of a finance company like CAFS.
+              Grows with your organization and can be tailored to meet the specific needs of a finance company like 360 HRMS.
             </div>
           </div>
         </div>
@@ -293,7 +293,7 @@ const Homepage = () => {
               <FaAward className="apart-icon" />
               <div>
                 <span className="apart-list-title">Trust Backed by Experience</span>
-                <p>As part of the reputable CAFS Group, our credibility and long-standing client relationships speak for themselves. Partner with us for reliable, future-ready HR tech.</p>
+                <p>As part of the reputable 360 HRMS Group, our credibility and long-standing client relationships speak for themselves. Partner with us for reliable, future-ready HR tech.</p>
               </div>
             </li>
           </ul>
