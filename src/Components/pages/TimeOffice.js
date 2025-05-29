@@ -22,49 +22,56 @@ import Footer from "./Footer";
 function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
-    const hysteresisRatioIn = 0.18;
-    const hysteresisRatioOut = 0.02;
+    let lastScrollY = window.scrollY;
+    let ticking = false;
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.intersectionRatio > hysteresisRatioIn) {
+        entries.forEach(entry => {
+          const scrollDirection = lastScrollY > window.scrollY ? 'up' : 'down';
+          const viewportThreshold = scrollDirection === 'up' ? 0.15 : 0.25;
+
+          if (entry.intersectionRatio > viewportThreshold) {
             entry.target.classList.add('scrolled');
-          } else if (entry.intersectionRatio < hysteresisRatioOut) {
+          } else if (entry.intersectionRatio < 0.1) {
             entry.target.classList.remove('scrolled');
           }
         });
       },
       {
-        threshold: [0, 0.02, 0.18, 0.5, 0.8, 1],
-        rootMargin: "-100px 0px" // Add negative margin to trigger earlier
+        threshold: [0, 0.1, 0.15, 0.25, 0.5, 1],
+        rootMargin: "0px 0px 100px 0px" // 100px bottom buffer
       }
     );
 
-    elements.forEach((el) => {
-      observer.observe(el);
-      if (el.getBoundingClientRect().top < window.innerHeight) {
+    const handleScroll = () => {
+      lastScrollY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    elements.forEach(el => {
+      // Only observe elements not initially in view
+      if (el.getBoundingClientRect().top > window.innerHeight) {
+        observer.observe(el);
+      } else {
         el.classList.add('scrolled');
       }
     });
 
-    // Add resize/transition listener
-    const resizeHandler = () => {
-      elements.forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight) {
-          el.classList.add('scrolled');
-        }
-      });
-    };
-
-    window.addEventListener('resize', resizeHandler);
-    
+    window.addEventListener('scroll', handleScroll);
     return () => {
       observer.disconnect();
-      window.removeEventListener('resize', resizeHandler);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 }
+
+
 
 export default function TimeOffice() {
   useScrollAnimation();

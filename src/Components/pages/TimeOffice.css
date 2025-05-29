@@ -306,19 +306,16 @@ body, html {
 /* --- Scroll animations --- */
 .scroll-animate {
   transition:
-    opacity 0.8s cubic-bezier(.17,.67,.83,.67),
-    transform 0.8s cubic-bezier(.17,.67,.83,.67);
+    opacity 0.7s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
   will-change: opacity, transform;
-  pointer-events: none;
-  /* Add initial state */
   opacity: 0;
-  transform: translateY(80px) scale(0.97);
+  transform: translateY(30px) scale(0.98);
 }
 
 .scroll-animate.scrolled {
   opacity: 1;
   transform: translateY(0) scale(1);
-  pointer-events: auto;
 }
 
 /* Responsive */
