@@ -144,6 +144,7 @@ export default function Payroll() {
                 src={payrollImage}
                 className="payroll-illustration"
                 alt="Payroll Illustration"
+                loading="lazy"
               />
             </div>
           </div>
@@ -157,6 +158,7 @@ export default function Payroll() {
                 src={salaryStructureImg}
                 className="salary-structure-illustration"
                 alt="Salary Structure"
+                loading="lazy"
               />
             </div>
             <div className="salary-structure-timeline-col">
@@ -279,6 +281,7 @@ export default function Payroll() {
                 src={salaryDeductionsImg}
                 className="salary-structure-illustration"
                 alt="Salary Deductions"
+                loading="lazy"
               />
             </div>
           </div>

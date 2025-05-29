@@ -148,7 +148,7 @@ export default function Employees() {
           <div className="emp-monitoring-row">
             {/* Performance Tracking: image left, card right */}
             <div className="emp-monitoring-img-col">
-              <img src={performanceImg} alt="Performance and Tracking" className="emp-monitoring-img" />
+              <img src={performanceImg} alt="Performance and Tracking" className="emp-monitoring-img"  loading="lazy" />
             </div>
             <div className="emp-monitoring-text-col">
               <div className="emp-monitoring-title">Performance and Engagement Tracking</div>
@@ -178,7 +178,7 @@ export default function Employees() {
               </div>
             </div>
             <div className="emp-monitoring-img-col">
-              <img src={complianceImg} alt="Compliance and Confidentiality" className="emp-monitoring-img" />
+              <img src={complianceImg} alt="Compliance and Confidentiality" className="emp-monitoring-img"  loading="lazy" />
             </div>
           </div>
         </div>

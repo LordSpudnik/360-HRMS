@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="footer-container">
         {/* Logo & About */}
         <div className="footer-col footer-about">
-          <img src={Logo} alt="Logo" className="footer-logo" />
+          <img src={Logo} alt="Logo" className="footer-logo" loading="lazy" />
           <div className="footer-about-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
           </div>

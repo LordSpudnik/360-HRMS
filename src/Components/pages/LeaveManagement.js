@@ -124,7 +124,7 @@ export default function LeaveManagement() {
             </div>
             {/* Right: Illustration */}
             <div className="leave-illustration-col scroll-animate">
-              <img src={leaveImg} alt="Leave Management Illustration" className="leave-illustration-img" />
+              <img src={leaveImg} alt="Leave Management Illustration" className="leave-illustration-img" loading="lazy" />
               <div className="leave-illustration-title" />
             </div>
           </div>

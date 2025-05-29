@@ -110,7 +110,7 @@ export default function AboutUs() {
             </p>
           </div>
           <div className="about-hero-img">
-            <img src={aboutHero} alt="CAFS Infotech Teamwork" />
+            <img src={aboutHero} alt="360 HRMS Teamwork"  loading="lazy"/>
           </div>
         </section>
 
@@ -143,14 +143,14 @@ export default function AboutUs() {
 
         <section className="about-mission-vision scroll-animate">
           <div className="about-mission">
-            <img src={missionIcon} alt="Mission" className="about-icon" />
+            <img src={missionIcon} alt="Mission" className="about-icon" loading="lazy" />
             <h2>Our Mission</h2>
             <p>
               To empower businesses with cutting-edge digital solutions that drive growth, efficiency, and innovation. We believe in building lasting partnerships by delivering quality, reliability, and outstanding customer service.
             </p>
           </div>
           <div className="about-vision">
-            <img src={visionIcon} alt="Vision" className="about-icon" />
+            <img src={visionIcon} alt="Vision" className="about-icon" loading="lazy" />
             <h2>Our Vision</h2>
             <p>
               To be recognized globally as a trusted partner for web and mobile app development, creating digital products that inspire, engage, and make a difference.
@@ -162,22 +162,22 @@ export default function AboutUs() {
           <h2>Our Core Values</h2>
           <div className="about-values-list">
             <div className="about-value-card">
-              <img src={teamwork} alt="Teamwork" className="about-icon" />
+              <img src={teamwork} alt="Teamwork" className="about-icon" loading="lazy" />
               <div className="about-value-title">Collaboration</div>
               <div className="about-value-desc">We work as one team—internally and with our clients—to achieve shared goals.</div>
             </div>
             <div className="about-value-card">
-              <img src={integrity} alt="Integrity" className="about-icon" />
+              <img src={integrity} alt="Integrity" className="about-icon" loading="lazy" />
               <div className="about-value-title">Integrity</div>
               <div className="about-value-desc">Honesty, transparency, and accountability are at the heart of everything we do.</div>
             </div>
             <div className="about-value-card">
-              <img src={innovation} alt="Innovation" className="about-icon" />
+              <img src={innovation} alt="Innovation" className="about-icon" loading="lazy" />
               <div className="about-value-title">Innovation</div>
               <div className="about-value-desc">We embrace new ideas and technologies to deliver creative, future-ready solutions.</div>
             </div>
             <div className="about-value-card">
-              <img src={customerFocus} alt="Customer Focus" className="about-icon" />
+              <img src={customerFocus} alt="Customer Focus" className="about-icon" loading="lazy" />
               <div className="about-value-title">Customer Focus</div>
               <div className="about-value-desc">Our clients’ success is our success. We listen, adapt, and go above and beyond.</div>
             </div>

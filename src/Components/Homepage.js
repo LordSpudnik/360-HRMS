@@ -94,23 +94,23 @@ const Homepage = () => {
         <p>Streamline HR Operations with our intuitive and efficient HRMS Platform.</p>
         <div className="services">
           <div className="service scroll-animate">
-            <img src={employeeIcon} alt="Employee Management" />
+            <img src={employeeIcon} alt="Employee Management" loading="lazy" />
             <div className="service-title">Employee Management</div>
           </div>
           <div className="service scroll-animate">
-            <img src={timeIcon} alt="Time Office" />
+            <img src={timeIcon} alt="Time Office" loading="lazy" />
             <div className="service-title">Time Office</div>
           </div>
           <div className="service scroll-animate">
-            <img src={payrollIcon} alt="Payroll" />
+            <img src={payrollIcon} alt="Payroll" loading="lazy" />
             <div className="service-title">Payroll</div>
           </div>
           <div className="service scroll-animate">
-            <img src={leaveIcon} alt="Leave Management" />
+            <img src={leaveIcon} alt="Leave Management" loading="lazy" />
             <div className="service-title">Leave Management</div>
           </div>
           <div className="service scroll-animate">
-            <img src={recruitmentIcon} alt="Recruitment" />
+            <img src={recruitmentIcon} alt="Recruitment" loading="lazy" />
             <div className="service-title">Recruitment</div>
           </div>
         </div>
@@ -309,11 +309,11 @@ const Homepage = () => {
           360 HRMS continues to be a key player in Chennai’s IT services sector, with a proven track record and a diverse client base.
         </p>
         <div className="client-logos">
-          <img src={ntcLogo} alt="NTC" className="client-logo" />
-          <img src={iljinLogo} alt="ILJIN" className="client-logo" />
-          <img src={zensys} alt="Client 3" className="client-logo" />
-          <img src={sbltLogo} alt="SBLT" className="client-logo" />
-          <img src={svcLogo} alt="SVC" className="client-logo" />
+          <img src={ntcLogo} alt="NTC" className="client-logo" loading="lazy" />
+          <img src={iljinLogo} alt="ILJIN" className="client-logo" loading="lazy" />
+          <img src={zensys} alt="Client 3" className="client-logo" loading="lazy" />
+          <img src={sbltLogo} alt="SBLT" className="client-logo" loading="lazy" />
+          <img src={svcLogo} alt="SVC" className="client-logo" loading="lazy" />
         </div>
       </section>
       {/* --- End Client Portfolio Section --- */}
