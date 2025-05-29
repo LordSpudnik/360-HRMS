@@ -3,6 +3,16 @@ import React, { useState, useRef, useEffect } from "react";
 const HIGHLIGHT_CLASS = "search-highlight";
 const CURRENT_CLASS = "current-highlight";
 
+// Helper: check if element is in viewport
+function isElementInViewport(el) {
+  if (!el) return false;
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+  );
+}
+
 // Highlight all matches, return an array of mark elements
 function highlightText(root, word) {
   if (!word) return [];
@@ -10,6 +20,18 @@ function highlightText(root, word) {
   let occurences = [];
 
   function traverse(node) {
+    // Skip navigation bars, top bars, and footers
+    if (
+      node.nodeType === 1 &&
+      (
+        node.tagName === "FOOTER" ||
+        node.classList.contains("navbar") ||
+        node.classList.contains("topbar") ||
+        node.getAttribute("role") === "navigation"
+      )
+    ) {
+      return;
+    }
     if (node.nodeType === 3) {
       const value = node.nodeValue;
       if (value.trim() === "") return;
@@ -35,7 +57,10 @@ function highlightText(root, word) {
     } else if (
       node.nodeType === 1 &&
       node.childNodes &&
-      !["SCRIPT", "STYLE", "MARK"].includes(node.tagName)
+      !["SCRIPT", "STYLE", "MARK", "FOOTER"].includes(node.tagName) &&
+      !node.classList.contains("navbar") &&
+      !node.classList.contains("topbar") &&
+      node.getAttribute("role") !== "navigation"
     ) {
       Array.from(node.childNodes).forEach(traverse);
     }
@@ -59,14 +84,12 @@ const SearchBar = ({ onClose }) => {
   const [query, setQuery] = useState("");
   const [currentIdx, setCurrentIdx] = useState(0);
   const [total, setTotal] = useState(0);
-  const [searched, setSearched] = useState(false); // <-- Add state to track if search was performed
+  const [searched, setSearched] = useState(false);
   const occurenceRefs = useRef([]);
   const inputRef = useRef();
   const [searchRoot, setSearchRoot] = useState(null);
 
-  // Determine search root on mount depending on which page we're on
   useEffect(() => {
-    // Try homepage, then employees-page, then fallback to body
     let root =
       document.querySelector(".homepage") ||
       document.querySelector(".employees-page") ||
@@ -74,33 +97,33 @@ const SearchBar = ({ onClose }) => {
     setSearchRoot(root);
   }, []);
 
-  // Focus input when modal opens
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
-  // Scroll to and highlight the current occurrence
+  // Only scroll if item is not already in viewport
   useEffect(() => {
     if (total > 0 && occurenceRefs.current.length) {
       occurenceRefs.current.forEach((m, idx) => {
         if (m) m.classList.toggle(CURRENT_CLASS, idx === currentIdx);
       });
-      occurenceRefs.current[currentIdx]?.scrollIntoView({ behavior: "smooth", block: "center" });
+      const target = occurenceRefs.current[currentIdx];
+      if (target && !isElementInViewport(target)) {
+        target.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
     }
   }, [currentIdx, total]);
 
-  // Remove highlights and close search
   const handleClose = () => {
     if (searchRoot) removeHighlights(searchRoot);
     occurenceRefs.current = [];
     setQuery("");
     setTotal(0);
     setCurrentIdx(0);
-    setSearched(false); // <-- Reset searched state
+    setSearched(false);
     onClose();
   };
 
-  // Search and highlight all
   const handleSearch = (e) => {
     e.preventDefault();
     if (!searchRoot) return;
@@ -117,15 +140,16 @@ const SearchBar = ({ onClose }) => {
     occurenceRefs.current = highlightText(searchRoot, query);
     setTotal(occurenceRefs.current.length);
     setCurrentIdx(occurenceRefs.current.length > 0 ? 0 : 0);
-    setSearched(true); // <-- Set searched to true after a search
+    setSearched(true);
 
     if (occurenceRefs.current.length) {
       occurenceRefs.current[0].classList.add(CURRENT_CLASS);
-      occurenceRefs.current[0].scrollIntoView({ behavior: "smooth", block: "center" });
+      if (!isElementInViewport(occurenceRefs.current[0])) {
+        occurenceRefs.current[0].scrollIntoView({ behavior: "smooth", block: "center" });
+      }
     }
   };
 
-  // Remove highlights on clear
   const handleInputChange = (e) => {
     setQuery(e.target.value);
     if (e.target.value === "" && searchRoot) {
@@ -133,11 +157,10 @@ const SearchBar = ({ onClose }) => {
       occurenceRefs.current = [];
       setTotal(0);
       setCurrentIdx(0);
-      setSearched(false); // <-- Reset searched state
+      setSearched(false);
     }
   };
 
-  // Move to next/prev occurrence
   const goto = (step) => {
     if (total < 2) return;
     setCurrentIdx((prev) => {
@@ -148,7 +171,6 @@ const SearchBar = ({ onClose }) => {
     });
   };
 
-  // Keyboard navigation
   useEffect(() => {
     function onKeyDown(e) {
       if (!total) return;
