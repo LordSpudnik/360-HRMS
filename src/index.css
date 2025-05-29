@@ -7,12 +7,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgb(0, 104, 216);
+    background: linear-gradient(to bottom, #81b9ef, #3498eb);
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(2, 80, 169);
+    background: linear-gradient(to bottom, #69a3da, #077dde);
 }
 
 ::-webkit-scrollbar-button { 
