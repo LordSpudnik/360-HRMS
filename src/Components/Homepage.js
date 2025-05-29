@@ -59,17 +59,17 @@ const Homepage = () => {
     <div>
       <div className="topbar">
         <div className="contact-info">
-          <span><FaPhoneAlt /> +91 78452 80780</span>
-          <span><FaEnvelope /> hr@cafsinfotech.com</span>
+          <span><FaPhoneAlt /> +91 00000 00000</span>
+          <span><FaEnvelope /> sample@sample.com</span>
         </div>
         <div className="social-icons">
-          <a href="https://www.linkedin.com/company/14573120/" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
-          <a href="https://x.com/cafs_infotech" target="_blank" rel="noopener noreferrer"><FaXTwitter /></a>
-          <a href="https://www.facebook.com/CAFSInfo/" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-          <a href="https://www.instagram.com/cafsinfotech/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-          <a href="https://in.pinterest.com/cafsinfotech/" target="_blank" rel="noopener noreferrer"><FaPinterestP /></a>
-          <a href="https://www.flickr.com/photos/157372462@N04/albums" target="_blank" rel="noopener noreferrer"><IoLogoFlickr /></a>
-          <a href="https://web.whatsapp.com/send?phone=+919500088633&text=Hi" target="_blank" rel="noopener noreferrer"><IoLogoWhatsapp /></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
+          <a href="https://x.com/" target="_blank" rel="noopener noreferrer"><FaXTwitter /></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+          <a href="https://in.pinterest.com/" target="_blank" rel="noopener noreferrer"><FaPinterestP /></a>
+          <a href="https://www.flickr.com/" target="_blank" rel="noopener noreferrer"><IoLogoFlickr /></a>
+          <a href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer"><IoLogoWhatsapp /></a>
         </div>
       </div>
 
@@ -305,8 +305,8 @@ const Homepage = () => {
       <section className="client-section scroll-animate">
         <h2 className="client-title">Our Client Portfolio</h2>
         <p className="client-desc">
-          CAFS Infotech has established itself as a reliable IT partner for a wide range of clients.<br />
-          CAFS Infotech continues to be a key player in Chennai’s IT services sector, with a proven track record and a diverse client base.
+          360 HRMS has established itself as a reliable IT partner for a wide range of clients.<br />
+          360 HRMS continues to be a key player in Chennai’s IT services sector, with a proven track record and a diverse client base.
         </p>
         <div className="client-logos">
           <img src={ntcLogo} alt="NTC" className="client-logo" />
@@ -325,28 +325,25 @@ const Homepage = () => {
           <div className="testimonial-card">
             <FaQuoteLeft className="testimonial-quote-icon" />
             <p>
-              CAFS Infotech work on our website and Internet marketing has made a significant difference to our business.<br /><br />
-              We’ve seen a 425% increase in quote requests from the website which has been remarkable.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             </p>
           </div>
           <div className="testimonial-card">
             <FaQuoteLeft className="testimonial-quote-icon" />
             <p>
-              I have been involved in big projects for major corporations and the team at CAFS Infotech is the best that I have worked with.<br /><br />
-              They are timely, efficient and use best practices in their development work. They move our project along quickly and keep us agile enough to be competitive. I would recommend them to anyone.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             </p>
           </div>
           <div className="testimonial-card">
             <FaQuoteLeft className="testimonial-quote-icon" />
             <p>
-              Our company product is successfully completed with 100% satisfaction. Overall, it’s pleasant to work with you. Undoubtedly suggested and thank you for the work.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             </p>
           </div>
           <div className="testimonial-card">
             <FaQuoteLeft className="testimonial-quote-icon" />
             <p>
-              Thank you so much for your help in creating our new website. Your expertise and professionalism were second to none.<br /><br />
-              The resulting website looks amazing, and we can’t wait to use it as the primary source of information for our customers.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             </p>
           </div>
         </div>
