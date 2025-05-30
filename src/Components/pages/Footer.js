@@ -54,10 +54,10 @@ export default function Footer() {
         </div>
         {/* Contact */}
         <div className="footer-col">
-          <div className="footer-col-title">Contact Us</div>
+          <div className="footer-col-title">Get in Touch</div>
           <div className="footer-col-content">
-            <strong>Phone:</strong> +91 00000 00000<br/>
-            <strong>E-Mail:</strong> <a href="mailto:ask@cafsinfotech.com">sample@sample.com</a>
+            <strong>Phone Us:</strong> +91 00000 00000<br/>
+            <strong>Mail Us:</strong> <a href="mailto:ask@cafsinfotech.com">sample@sample.com</a>
           </div>
         </div>
       </div>

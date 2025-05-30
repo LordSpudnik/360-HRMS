@@ -10,7 +10,7 @@ const navItems = [
   { label: "Leave Management", to: "/leave-management" },
   { label: "Recruitment", to: "/recruitment" },
   { label: "About Us", to: "/about-us" },
-  { label: "Contact Us", to: "/contact" }
+  { label: "Contact Us", to: "/contact-us" }
 ];
 
 export default function Navbar({ onSearchClick }) {

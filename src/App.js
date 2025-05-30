@@ -14,7 +14,7 @@ import ScrollToTop from "./Components/pages/ScrollToTop";
 function AnimatedRoutes() {
   const location = useLocation();
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       <ScrollToTop />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Homepage />} />
@@ -24,7 +24,7 @@ function AnimatedRoutes() {
         <Route path="/leave-management" element={<LeaveManagement />} />
         <Route path="/recruitment" element={<Recruitment />} />
         <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/contact-us" element={<ContactUs />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </AnimatePresence>

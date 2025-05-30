@@ -82,10 +82,6 @@ export default function ContactUs() {
     }));
   };
 
-  // The button will not do anything
-  // Remove the onSubmit handler or keep it as below, but the "Submit" button below will do nothing
-  // Just add a second button at the end of the form
-
   return (
     <div className="contactus-page">
       <div className="topbar">
@@ -125,7 +121,7 @@ export default function ContactUs() {
         }}
       >
         <div className="contact-main scroll-animate">
-          <h1 className="contact-title">Contact Us</h1>
+          <h1 className="contact-title">Send us a Message</h1>
           <p className="contact-desc scroll-animate">
             We'd love to hear from you! Fill out the form below and our team will get back to you shortly.
           </p>
@@ -148,7 +144,7 @@ export default function ContactUs() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder="Enter your name"
+                  placeholder="Name *"
                   autoComplete="off"
                 />
               </label>
@@ -159,7 +155,7 @@ export default function ContactUs() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="Enter your email"
+                  placeholder="Email *"
                   autoComplete="off"
                 />
               </label>
@@ -169,7 +165,6 @@ export default function ContactUs() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  required
                   placeholder="Subject"
                   autoComplete="off"
                 />
@@ -180,8 +175,7 @@ export default function ContactUs() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  required
-                  placeholder="Type your message here"
+                  placeholder="Message"
                   autoComplete="off"
                 />
               </label>
