@@ -1,0 +1,227 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #fff 0%, #f7f8fa 100%);
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+.contactus-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Topbar styling (reused from Employees.css) */
+.topbar {
+  background-color: #d3d7de;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 2rem;
+  font-size: 0.9rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 40px;
+  box-sizing: border-box;
+  z-index: 100;
+}
+.topbar .contact-info {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.topbar .contact-info span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+.topbar .social-icons {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+.social-icons a {
+  color: #000;
+  font-size: 1.1rem;
+  transition: transform 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+}
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #0077b5;
+  z-index: 2;
+}
+
+/* --- Search Bar Overlay Modal --- */
+.search-bar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(40, 60, 110, 0.10);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6.5rem;
+}
+.search-bar-modal {
+  background: none;
+}
+
+/* --- Contact Main Section --- */
+.contact-container {
+  max-width: 530px;
+  margin: 7rem auto 3rem auto;
+  padding: 2.8rem 2rem 2.2rem 2rem;
+  background: #fff;
+  border-radius: 1.6rem;
+  box-shadow: 0 12px 32px rgba(20, 33, 61, 0.13);
+  min-height: 560px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+.contact-main {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.contact-title {
+  text-align: center;
+  color: #242273;
+  margin-bottom: 0.3rem;
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.contact-desc {
+  color: #565575;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 0.6rem;
+  margin-top: 0.35rem;
+  max-width: 430px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Form Styling --- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 0.7rem;
+}
+.contact-form label {
+  color: #14213d;
+  font-weight: 500;
+  font-size: 1.04rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+  opacity: 0.92;
+  width: 100%;
+  transition: color 0.2s;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 0;
+  border: 1.5px solid #bfc3c9;
+  border-radius: 8px;
+  font-size: 1.07rem;
+  background: #f7fafc;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #fca311;
+  background: #fffbe9;
+  box-shadow: 0 0 0 2px #fca31133;
+}
+.contact-submit-btn {
+  width: 100%;
+  padding: 12px 0;
+  background: linear-gradient(90deg, #fca311 40%, #ffbe47 100%);
+  color: #fff;
+  font-size: 1.16rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 0.6rem;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px rgba(252, 163, 17, 0.09);
+  transition: background 0.22s, transform 0.18s;
+}
+.contact-submit-btn:hover,
+.contact-submit-btn:focus {
+  background: linear-gradient(90deg, #ffbe47 0%, #fca311 100%);
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* --- Success Animation --- */
+.contact-success {
+  text-align: center;
+  color: #1c7c54;
+  font-size: 1.17rem;
+  padding: 2.1rem 1.2rem 2.2rem 1.2rem;
+  background: #e6ffed;
+  border-radius: 1.2rem;
+  border: 1px solid #b0f5c3;
+  margin-top: 2.5rem;
+  box-shadow: 0 2px 12px 0 #1c7c5426;
+  animation: fadeInSuccess 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes fadeInSuccess {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* --- Animations --- */
+.scroll-animate {
+  transition:
+    opacity 0.8s cubic-bezier(.17,.67,.83,.67),
+    transform 0.8s cubic-bezier(.17,.67,.83,.67);
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+.scroll-animate:not(.scrolled) {
+  opacity: 0;
+  transform: translateY(80px) scale(0.97);
+  pointer-events: none;
+}
+.scroll-animate.scrolled {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+@media (max-width: 800px) {
+  .contact-container {
+    max-width: 99vw;
+    padding: 1.3rem 0.7rem 1.2rem 0.7rem;
+    min-height: 420px;
+  }
+  .contact-title {
+    font-size: 1.3rem;
+  }
+  .contact-desc {
+    font-size: 0.94rem;
+  }
+}

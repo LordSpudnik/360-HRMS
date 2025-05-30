@@ -8,12 +8,13 @@ import TimeOffice from "./Components/pages/TimeOffice";
 import LeaveManagement from "./Components/pages/LeaveManagement";
 import Recruitment from "./Components/pages/Recruitment";
 import AboutUs from "./Components/pages/AboutUs";
+import ContactUs from "./Components/pages/ContactUs";
 import ScrollToTop from "./Components/pages/ScrollToTop";
 
 function AnimatedRoutes() {
   const location = useLocation();
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" initial={false}>
       <ScrollToTop />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Homepage />} />
@@ -23,6 +24,7 @@ function AnimatedRoutes() {
         <Route path="/leave-management" element={<LeaveManagement />} />
         <Route path="/recruitment" element={<Recruitment />} />
         <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </AnimatePresence>
