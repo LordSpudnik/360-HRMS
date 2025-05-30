@@ -161,7 +161,7 @@ export default function Employees() {
                   <tr>
                     <td>101</td>
                     <td>Alice Johnson</td>
-                    <td>1990-05-12</td>
+                    <td>12-05-1990</td>
                     <td>
                       <a href="mailto:alice.johnson@xyz.com" className="emp-table-link">alice.johnson@xyz.com</a>
                     </td>
@@ -173,7 +173,7 @@ export default function Employees() {
                   <tr>
                     <td>102</td>
                     <td>Bob Smith</td>
-                    <td>1985-09-30</td>
+                    <td>30-09-1985</td>
                     <td>
                       <a href="mailto:bob.smith@xyz.com" className="emp-table-link">bob.smith@xyz.com</a>
                     </td>
@@ -185,7 +185,7 @@ export default function Employees() {
                   <tr>
                     <td>103</td>
                     <td>Clara<br />Fernandez</td>
-                    <td>1993-02-17</td>
+                    <td>17-02-1993</td>
                     <td>
                       <a href="mailto:clara.f@xyz.com" className="emp-table-link">clara.f@xyz.com</a>
                     </td>

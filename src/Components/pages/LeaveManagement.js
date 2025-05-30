@@ -160,8 +160,8 @@ export default function LeaveManagement() {
                   <td>L001</td>
                   <td>101</td>
                   <td>Sick Leave</td>
-                  <td>2025-05-20</td>
-                  <td>2025-05-22</td>
+                  <td>20-05-2025</td>
+                  <td>22-05-2025</td>
                   <td>3</td>
                   <td>Approved</td>
                   <td>Flu recovery</td>
@@ -170,8 +170,8 @@ export default function LeaveManagement() {
                   <td>L002</td>
                   <td>102</td>
                   <td>Casual Leave</td>
-                  <td>2025-06-01</td>
-                  <td>2025-06-02</td>
+                  <td>01-05-2025</td>
+                  <td>02-05-2025</td>
                   <td>2</td>
                   <td>Pending</td>
                   <td>Personal errand</td>
@@ -180,8 +180,8 @@ export default function LeaveManagement() {
                   <td>L003</td>
                   <td>103</td>
                   <td>Earned Leave</td>
-                  <td>2025-06-10</td>
-                  <td>2025-06-15</td>
+                  <td>10-05-2025</td>
+                  <td>15-05-2025</td>
                   <td>6</td>
                   <td>Rejected</td>
                   <td>Vacation request</td>

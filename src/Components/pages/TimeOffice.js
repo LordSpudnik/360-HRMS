@@ -324,27 +324,35 @@ export default function TimeOffice() {
                 <tbody>
                   <tr>
                     <td>101</td>
-                    <td>2025-05-28</td>
+                    <td>28-05-2025</td>
                     <td>09:05 AM</td>
                     <td>05:45 PM</td>
-                    <td>8.7 hrs</td>
+                    <td>8 hours 40 minutes</td>
                     <td>Present</td>
                   </tr>
                   <tr>
                     <td>102</td>
-                    <td>2025-05-28</td>
-                    <td>10:15 AM</td>
-                    <td>04:00 PM</td>
-                    <td>5.75 hrs</td>
-                    <td>Late Entry</td>
+                    <td>28-05-2025</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>0 hours</td>
+                    <td>Absent</td>
                   </tr>
                   <tr>
                     <td>103</td>
-                    <td>2025-05-28</td>
+                    <td>28-05-2025</td>
+                    <td>09:20 AM</td>
+                    <td>06:10 PM</td>
+                    <td>8 hours 50 mins</td>
+                    <td>On Duty</td>
+                  </tr>
+                  <tr>
+                    <td>104</td>
+                    <td>28-05-2025</td>
                     <td>—</td>
                     <td>—</td>
-                    <td>0 hrs</td>
-                    <td>Absent</td>
+                    <td>0 hours</td>
+                    <td>Leave</td>
                   </tr>
                 </tbody>
               </table>
