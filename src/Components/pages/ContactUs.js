@@ -82,16 +82,9 @@ export default function ContactUs() {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: ""
-    });
-  };
+  // The button will not do anything
+  // Remove the onSubmit handler or keep it as below, but the "Submit" button below will do nothing
+  // Just add a second button at the end of the form
 
   return (
     <div className="contactus-page">
@@ -119,7 +112,6 @@ export default function ContactUs() {
         </div>
       )}
 
-      {/* AnimatePresence for exit/entry is handled at the router level (App.js)! */}
       <motion.div
         className="contact-container"
         variants={containerVariants}
@@ -148,9 +140,8 @@ export default function ContactUs() {
               <p>Thank you for contacting us! We'll get back to you soon.</p>
             </motion.div>
           ) : (
-            <form className="contact-form" onSubmit={handleSubmit} autoComplete="off">
+            <form className="contact-form" autoComplete="off">
               <label ref={nameRef} className="scroll-animate">
-                Name
                 <input
                   type="text"
                   name="name"
@@ -162,7 +153,6 @@ export default function ContactUs() {
                 />
               </label>
               <label ref={emailRef} className="scroll-animate">
-                Email
                 <input
                   type="email"
                   name="email"
@@ -174,7 +164,6 @@ export default function ContactUs() {
                 />
               </label>
               <label ref={subjectRef} className="scroll-animate">
-                Subject
                 <input
                   type="text"
                   name="subject"
@@ -186,7 +175,6 @@ export default function ContactUs() {
                 />
               </label>
               <label ref={messageRef} className="scroll-animate">
-                Message
                 <textarea
                   name="message"
                   value={formData.message}
@@ -197,7 +185,7 @@ export default function ContactUs() {
                   autoComplete="off"
                 />
               </label>
-              <button type="submit" className="contact-submit-btn scroll-animate">Send</button>
+              <button type="button" className="contact-submit-btn scroll-animate">Submit</button>
             </form>
           )}
         </div>
