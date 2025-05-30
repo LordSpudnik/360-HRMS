@@ -114,8 +114,7 @@
   transform: translateY(0) scale(1);
 }
 
-.footer-scroll-top-btn:hover,
-.footer-scroll-top-btn:focus {
+.footer-scroll-top-btn:hover {
   background: #3f48f4;
   opacity: 1;
   transform: translateY(-4px) scale(1.06);
