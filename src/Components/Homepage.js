@@ -51,6 +51,21 @@ function useScrollAnimation() {
   }, []);
 }
 
+const reviews = [
+  {
+    text: "The level of expertise and customer service provided was outstanding. The team was responsive to our needs and always available to answer our questions, making the process efficient and stress-free.",
+  },
+  {
+    text: "Working with this team has been a seamless experience from start to finish. Their professionalism, attention to detail, and commitment to delivering on time exceeded our expectations. We look forward to collaborating again in the future.",
+  },
+  {
+    text: "We were impressed by the quality of service and the tailored solutions offered to meet our specific requirements. The company demonstrated reliability, transparency, and a genuine care for client satisfaction.",
+  },
+  {
+    text: "Excellent communication, timely delivery, and exceptional results! We highly recommend their services to anyone seeking a trustworthy and capable partner for their business needs.",
+  },
+];
+
 const Homepage = () => {
   useScrollAnimation();
   const [showSearch, setShowSearch] = useState(false);
@@ -116,72 +131,89 @@ const Homepage = () => {
         </div>
       </div>
 
-      {/* --- Scroll-animated About Section --- */}
-      <section className="about-section scroll-animate">
-        <h2 className="about-title">Who We Are</h2>
-        <p className="about-desc">
-          Our finance company is backed by a team of experienced, reliable professionals committed to delivering
-          precise, timely, and personalized financial solutions. With a strong focus on consistency and client care,
-          our staff ensures a seamless and trustworthy experience at every step.
-        </p>
-        <div className="about-cards">
-          <div className="about-card">
-            <div className="about-card-icon">
-              <span role="img" aria-label="target">🎯</span>
-            </div>
-            <div className="about-card-title">Reliable and Efficient</div>
-            <div className="about-card-desc">
-              Professionals who consistently deliver high-quality work on time with precision and accountability.
-            </div>
-          </div>
-          <div className="about-card">
-            <div className="about-card-icon">
-              <span role="img" aria-label="stability">⚖️</span>
-            </div>
-            <div className="about-card-title">Stability</div>
-            <div className="about-card-desc">
-              Maintaining the same relationship manager over time ensures consistency and fosters trust, supported by strong employee retention and effective HR practices.
-            </div>
-          </div>
-          <div className="about-card">
-            <div className="about-card-icon">
-              <span role="img" aria-label="client-focused">🤝</span>
-            </div>
-            <div className="about-card-title">Client-Focused</div>
-            <div className="about-card-desc">
-              A client-focused culture is fostered through HR-driven training in customer service and empathy, ensuring employees consistently prioritize client needs and address concerns effectively.
-            </div>
-          </div>
+      {/* --- Redesigned Who We Are Section --- */}
+      <section className="about-section-v2 scroll-animate">
+        <div className="about-v2-header">
+          <h2 className="about-title-v2">Who We Are</h2>
+          <p className="about-desc-v2">
+            Our finance company is backed by a team of experienced, reliable professionals committed to delivering
+            precise, timely, and personalized financial solutions. With a strong focus on consistency and client care,
+            our staff ensures a seamless and trustworthy experience at every step.
+          </p>
         </div>
-        <div className="about-numbers-label">Proven by Numbers</div>
-        <div className="about-numbers scroll-animate">
-          <div className="about-number-item">
-            <div className="about-number-title">Years of Experience</div>
-            <div className="about-number-value">
-              <CountUpOnView end={5} />
+        <div className="about-v2-content">
+          <div className="about-v2-features">
+            <div className="about-v2-feature">
+              <div className="about-v2-feature-circle">
+                <span role="img" aria-label="target">🎯</span>
+              </div>
+              <div>
+                <div className="about-v2-feature-title">Reliable and Efficient</div>
+                <div className="about-v2-feature-desc">
+                  Professionals who consistently deliver high-quality work on time with precision and accountability.
+                </div>
+              </div>
+            </div>
+            <div className="about-v2-feature">
+              <div className="about-v2-feature-circle">
+                <span role="img" aria-label="stability">⚖️</span>
+              </div>
+              <div>
+                <div className="about-v2-feature-title">Stability</div>
+                <div className="about-v2-feature-desc">
+                  Maintaining the same relationship manager over time ensures consistency and fosters trust, supported by strong employee retention and effective HR practices.
+                </div>
+              </div>
+            </div>
+            <div className="about-v2-feature">
+              <div className="about-v2-feature-circle">
+                <span role="img" aria-label="client-focused">🤝</span>
+              </div>
+              <div>
+                <div className="about-v2-feature-title">Client-Focused</div>
+                <div className="about-v2-feature-desc">
+                  A client-focused culture is fostered through HR-driven training in customer service and empathy, ensuring employees consistently prioritize client needs and address concerns effectively.
+                </div>
+              </div>
             </div>
           </div>
-          <div className="about-number-item">
-            <div className="about-number-title">Total Projects</div>
-            <div className="about-number-value">
-              <CountUpOnView end={200} suffix="+" />
-            </div>
-          </div>
-          <div className="about-number-item">
-            <div className="about-number-title">New Client Every Year</div>
-            <div className="about-number-value">
-              <CountUpOnView end={10} suffix="+" />
-            </div>
-          </div>
-          <div className="about-number-item">
-            <div className="about-number-title">Happy Clients</div>
-            <div className="about-number-value">
-              <CountUpOnView end={50} suffix="+" />
+          {/* --- Improved Proven by Numbers Card --- */}
+          <div className="about-v2-stats-card about-v2-stats-modern">
+            <div className="about-v2-stats-title">Proven by Numbers</div>
+            <div className="about-v2-stats-modern-grid">
+              <div className="about-v2-stats-modern-item">
+                <div className="about-v2-stats-modern-icon">⏳</div>
+                <div className="about-v2-stats-modern-value">
+                  <CountUpOnView end={5} />
+                </div>
+                <div className="about-v2-stats-modern-label">Years of Experience</div>
+              </div>
+              <div className="about-v2-stats-modern-item">
+                <div className="about-v2-stats-modern-icon">📁</div>
+                <div className="about-v2-stats-modern-value">
+                  <CountUpOnView end={200} suffix="+" />
+                </div>
+                <div className="about-v2-stats-modern-label">Total Projects</div>
+              </div>
+              <div className="about-v2-stats-modern-item">
+                <div className="about-v2-stats-modern-icon">🆕</div>
+                <div className="about-v2-stats-modern-value">
+                  <CountUpOnView end={10} suffix="+" />
+                </div>
+                <div className="about-v2-stats-modern-label">New Client Every Year</div>
+              </div>
+              <div className="about-v2-stats-modern-item">
+                <div className="about-v2-stats-modern-icon">😊</div>
+                <div className="about-v2-stats-modern-value">
+                  <CountUpOnView end={50} suffix="+" />
+                </div>
+                <div className="about-v2-stats-modern-label">Happy Clients</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      {/* --- End About Section --- */}
+      {/* --- End Redesigned About Section --- */}
 
       {/* --- Scroll-animated Why Smart HRMS Works Section --- */}
       <section className="why-hrms-section scroll-animate">
@@ -319,33 +351,17 @@ const Homepage = () => {
       {/* --- End Client Portfolio Section --- */}
 
       {/* --- Scroll-animated Voices of Trust (Testimonial) Section --- */}
-      <section className="testimonial-section scroll-animate">
-        <h2 className="testimonial-title">Voices of Trust</h2>
-        <div className="testimonial-grid">
-          <div className="testimonial-card">
-            <FaQuoteLeft className="testimonial-quote-icon" />
-            <p>
-              They've helped us stay ahead of the curve in our industry.
-            </p>
-          </div>
-          <div className="testimonial-card">
-            <FaQuoteLeft className="testimonial-quote-icon" />
-            <p>
-              Working with them has streamlined our processes and boosted productivity.
-            </p>
-          </div>
-          <div className="testimonial-card">
-            <FaQuoteLeft className="testimonial-quote-icon" />
-            <p>
-              Communication with them is always clear and transparent.
-            </p>
-          </div>
-          <div className="testimonial-card">
-            <FaQuoteLeft className="testimonial-quote-icon" />
-            <p>
-              Their innovative approach has helped us stay ahead of the competition.
-            </p>
-          </div>
+      <section className="testimonial-section-v2 scroll-animate">
+        <h2 className="testimonial-title-v2">Voices of Trust</h2>
+        <div className="testimonial-grid-v2">
+          {reviews.map((review, idx) => (
+            <div className="testimonial-card-v2" key={idx}>
+              <div className="testimonial-quote-icon-v2">
+                <FaQuoteLeft />
+              </div>
+              <p>{review.text}</p>
+            </div>
+          ))}
         </div>
       </section>
       {/* --- End Testimonial Section --- */}
