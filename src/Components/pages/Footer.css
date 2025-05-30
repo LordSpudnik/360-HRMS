@@ -83,6 +83,45 @@
   color: #e86b4b;
 }
 
+/* Scroll to Top Button styles */
+.footer-scroll-top-btn {
+  position: fixed;
+  right: 2rem;
+  bottom: 2.7rem;
+  background: #5c7cdd;
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.7rem 1.3rem;
+  font-size: 1.12rem;
+  font-weight: bold;
+  box-shadow: 0 2px 14px #23227740;
+  cursor: pointer;
+  z-index: 10001;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(30px) scale(0.95);
+  transition:
+    opacity 0.32s cubic-bezier(.6,.1,.4,1),
+    transform 0.34s cubic-bezier(.6,.1,.4,1),
+    background 0.22s;
+}
+
+/* Show button with fade and slide up animation */
+.footer-scroll-top-btn.show {
+  opacity: 0.92;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.footer-scroll-top-btn:hover,
+.footer-scroll-top-btn:focus {
+  background: #3f48f4;
+  opacity: 1;
+  transform: translateY(-4px) scale(1.06);
+  outline: none;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1100px) {
   .footer-container {

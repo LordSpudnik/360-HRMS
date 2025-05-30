@@ -1,17 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Footer.css";
-import Logo from "./assets/icons/logo.png"; // Save the logo (as visible in the screenshot) in this path, or adjust the path as necessary.
+import Logo from "./assets/icons/logo.png"; // Adjust as needed
 
 export default function Footer() {
   const navigate = useNavigate();
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show button after scrolling 180px (adjust as desired)
+      setShowTop(window.scrollY > 180);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <footer className="footer">
       <div className="footer-container">
         {/* Logo & About */}
         <div className="footer-col footer-about">
-          <img src={Logo} alt="Logo" className="footer-logo" loading="lazy" onClick={() => navigate("/")} />
+          <img
+            src={Logo}
+            alt="Logo"
+            className="footer-logo"
+            loading="lazy"
+            onClick={() => navigate("/")}
+          />
           <div className="footer-about-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
           </div>
@@ -41,6 +61,15 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <button
+        className={`footer-scroll-top-btn${showTop ? " show" : ""}`}
+        onClick={handleScrollTop}
+        aria-label="Scroll to top"
+        type="button"
+        tabIndex={showTop ? 0 : -1}
+      >
+        ⬆ Top
+      </button>
     </footer>
   );
 }
