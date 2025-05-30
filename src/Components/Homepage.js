@@ -349,6 +349,7 @@ const Homepage = () => {
         </div>
       </section>
       {/* --- End Testimonial Section --- */}
+      <br /> <br />
       <Footer />
     </motion.div>
     </div>
