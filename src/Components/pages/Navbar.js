@@ -18,7 +18,7 @@ export default function Navbar({ onSearchClick }) {
 
   return (
     <div className="navbar">
-      <div className="logo">360<span>HRMS</span></div>
+      <div className="logo" onClick={() => navigate("/")} style={{ cursor: "pointer" }}>360<span>HRMS</span></div>
       <div className="nav-links">
         {navItems.map(item => (
           <a

@@ -1,14 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Footer.css";
 import Logo from "./assets/icons/logo.png"; // Save the logo (as visible in the screenshot) in this path, or adjust the path as necessary.
 
 export default function Footer() {
+  const navigate = useNavigate();
+
   return (
     <footer className="footer">
       <div className="footer-container">
         {/* Logo & About */}
         <div className="footer-col footer-about">
-          <img src={Logo} alt="Logo" className="footer-logo" loading="lazy" />
+          <img src={Logo} alt="Logo" className="footer-logo" loading="lazy" onClick={() => navigate("/")} />
           <div className="footer-about-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
           </div>

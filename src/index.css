@@ -1,5 +1,6 @@
 body {
   font-family: garamond, serif;
+  cursor: default;
 }
 
 ::-webkit-scrollbar {

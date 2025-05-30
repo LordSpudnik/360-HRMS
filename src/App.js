@@ -8,11 +8,13 @@ import TimeOffice from "./Components/pages/TimeOffice";
 import LeaveManagement from "./Components/pages/LeaveManagement";
 import Recruitment from "./Components/pages/Recruitment";
 import AboutUs from "./Components/pages/AboutUs";
+import ScrollToTop from "./Components/pages/ScrollToTop";
 
 function AnimatedRoutes() {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
+      <ScrollToTop />
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Homepage />} />
         <Route path="/payroll" element={<Payroll />} />
