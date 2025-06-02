@@ -66,7 +66,6 @@ const reviews = [
   },
 ];
 
-// 3 new "Who We Are" features
 const whoWeAreFeatures = [
   {
     icon: <span role="img" aria-label="target">🎯</span>,
@@ -165,7 +164,7 @@ const Homepage = () => {
         </div>
       </div>
 
-      {/* --- Redesigned Who We Are Section --- */}
+      {/* --- Who We Are Section --- */}
       <section className="about-section-v2 scroll-animate">
         <div className="about-v2-header">
           <h2 className="about-title-v2">Who We Are</h2>
@@ -188,7 +187,7 @@ const Homepage = () => {
             </div>
           ))}
         </div>
-        {/* --- Proven by Numbers Card - 4 components in 1 row --- */}
+        {/* --- Proven by Numbers Card */}
         <div className="about-v2-stats-card about-v2-stats-modern about-v2-stats-below">
           <div className="about-v2-stats-title about-v2-stats-modern-title">Proven by Numbers</div>
           <div className="about-v2-stats-modern-grid stats-four-in-row">
@@ -223,9 +222,9 @@ const Homepage = () => {
           </div>
         </div>
       </section>
-      {/* --- End Redesigned About Section --- */}
+      {/* --- End About Section --- */}
 
-      {/* --- Scroll-animated Why Smart HRMS Works Section --- */}
+      {/* --- Why Smart HRMS Works --- */}
       <section className="why-hrms-section scroll-animate">
         <h2 className="why-hrms-title">From Chaos to Clarity:<br />Why 360 HRMS Works</h2>
         <div className="why-hrms-cards">
@@ -275,7 +274,7 @@ const Homepage = () => {
       </section>
       {/* --- End Why Smart HRMS Section --- */}
 
-      {/* --- Scroll-animated What Sets Us Apart Section --- */}
+      {/* --- What Sets Us Apart Section --- */}
       <section className="apart-section scroll-animate">
         <h2 className="apart-title">What Sets Us Apart</h2>
         <div className="apart-list-wrapper">
@@ -343,7 +342,7 @@ const Homepage = () => {
       </section>
       {/* --- End What Sets Us Apart Section --- */}
 
-      {/* --- Scroll-animated Client Portfolio Section --- */}
+      {/* --- Client Portfolio Section --- */}
       <section className="client-section scroll-animate">
         <h2 className="client-title">Our Client Portfolio</h2>
         <p className="client-desc">
@@ -360,7 +359,7 @@ const Homepage = () => {
       </section>
       {/* --- End Client Portfolio Section --- */}
 
-      {/* --- Scroll-animated Voices of Trust (Testimonial) Section --- */}
+      {/* --- Voices of Trust Section --- */}
       <section className="testimonial-section-v2 scroll-animate">
         <h2 className="testimonial-title-v2">Voices of Trust</h2>
         <div className="testimonial-grid-v2">
