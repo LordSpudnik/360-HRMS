@@ -10,7 +10,6 @@ import { IoLogoFlickr, IoLogoWhatsapp } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
 import SearchBar from "./SearchBar";
 
-// Scroll animation hook (pattern from Employees.js)
 function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
@@ -48,13 +47,11 @@ export default function ContactUs() {
   const [submitted, setSubmitted] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
-  // Refs for scroll-animate fields
   const nameRef = useRef(null);
   const emailRef = useRef(null);
   const subjectRef = useRef(null);
   const messageRef = useRef(null);
 
-  // Animation variants for framer-motion
   const containerVariants = {
     initial: { opacity: 0, x: 40 },
     animate: { opacity: 1, x: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
@@ -67,7 +64,6 @@ export default function ContactUs() {
     exit: { opacity: 0, scale: 0.9, transition: { duration: 0.5 } }
   };
 
-  // Reset form on successful send
   useEffect(() => {
     if (submitted) {
       const timer = setTimeout(() => setSubmitted(false), 1800);

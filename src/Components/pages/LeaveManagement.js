@@ -7,16 +7,14 @@ import "./LeaveManagement.css";
 import { FaPhoneAlt, FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
 import { IoLogoFlickr, IoLogoWhatsapp } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
-import leaveImg from "./assets/imgs/leave.png"; // Add your SVG/PNG here
+import leaveImg from "./assets/imgs/leave.png";
 
-// Scroll animation hook (same logic as homepage)
 function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
 
-    // We'll track state for each element to avoid jitter
-    const hysteresisRatioIn = 0.18;  // When to add (section is at least 18% visible)
-    const hysteresisRatioOut = 0.02; // When to remove (section is less than 2% visible)
+    const hysteresisRatioIn = 0.18;
+    const hysteresisRatioOut = 0.02;
 
     const observer = new window.IntersectionObserver(
       (entries) => {
@@ -73,7 +71,6 @@ export default function LeaveManagement() {
         </div>
       )}
 
-      {/* Only main content animated in/out */}
       <motion.div
         className="leave-bg"
         initial={{ opacity: 0, x: 40 }}
@@ -88,7 +85,6 @@ export default function LeaveManagement() {
             It includes applying, approving, tracking, and reporting various types of employee leaves.
           </div>
           <div className="leave-content-row">
-            {/* Left: Types of Leave Card */}
             <div className="leave-types-card scroll-animate">
               <div className="leave-types-title">Common Types of Leave</div>
               <ul className="leave-types-list">
@@ -122,7 +118,6 @@ export default function LeaveManagement() {
                 </li>
               </ul>
             </div>
-            {/* Right: Illustration */}
             <div className="leave-illustration-col scroll-animate">
               <img src={leaveImg} alt="Leave Management Illustration" className="leave-illustration-img" loading="lazy" />
               <div className="leave-illustration-title" />

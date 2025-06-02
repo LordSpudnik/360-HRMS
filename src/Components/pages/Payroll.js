@@ -10,14 +10,10 @@ import { IoLogoFlickr, IoLogoWhatsapp } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
 import Footer from "./Footer";
 
-// Main illustration
 import payrollImage from "./assets/imgs/payroll.png";
-// Salary Structure illustration
 import salaryStructureImg from "./assets/imgs/salary.png";
-// Salary Deductions illustration
 import salaryDeductionsImg from "./assets/imgs/tax.png";
 
-// --- MODIFIED useScrollAnimation with IntersectionObserver for in/out animation ---
 function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
@@ -95,7 +91,7 @@ export default function Payroll() {
           </div>
         </div>
       )}
-      {/* Animate ONLY the main content */}
+      
       <motion.div
         className="payroll-bg scroll-animate"
         initial={{ opacity: 0, x: 40 }}
@@ -223,7 +219,6 @@ export default function Payroll() {
         {/* Salary Deductions Section */}
         <div className="salary-structure-section scroll-animate">
           <div className="salary-structure-row">
-            {/* Timeline and Text on the left */}
             <div className="salary-structure-timeline-col">
               <div className="salary-structure-title">Salary Deductions</div>
               <div className="salary-structure-timeline">
@@ -275,7 +270,6 @@ export default function Payroll() {
                 </div>
               </div>
             </div>
-            {/* Image on the right */}
             <div className="salary-structure-img-col salary-deductions-img-col">
               <img
                 src={salaryDeductionsImg}
@@ -358,7 +352,6 @@ export default function Payroll() {
                 </table>
               </div>
             </div>
-            {/* No image on right for this section */}
           </div>
         </div>
         {/* End Salary Table Section */}

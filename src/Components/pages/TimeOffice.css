@@ -143,7 +143,6 @@ body, html {
   to { opacity: 1;}
 }
 
-/* --- Adjusted main image size for illustration --- */
 .timeoffice-img-illus {
   height: 200px;
   margin-left: 900px;
@@ -261,14 +260,13 @@ body, html {
   animation: iconpop 1.6s cubic-bezier(.17,.67,.83,.67);
 }
 
-/* --- Adjusted feature icon size and background to blend with card color --- */
 .timeoffice-feature-img {
   width: 64px;
   height: 64px;
   object-fit: contain;
   display: block;
   margin: 0 auto;
-  background: #c9d0df; /* BLEND with card color instead of bg */
+  background: #c9d0df; 
   border-radius: 0.7rem;
   box-shadow: 0 1px 8px #bfc0d0aa;
   padding: 10px;
@@ -318,7 +316,6 @@ body, html {
   transform: translateY(0) scale(1);
 }
 
-/* Responsive */
 @media (max-width: 1100px) {
   .timeoffice-main {
     padding: 2rem 0.5rem 1.2rem 0.5rem;
@@ -553,7 +550,7 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 8.5rem;    /* much more space between each step */
+  gap: 8.5rem;    
   min-width: 220px;
   max-width: 380px;
 }
@@ -605,7 +602,7 @@ body, html {
 }
 .od-vertical-line {
   width: 70px;
-  min-height: 680px; /* make the flowchart much longer */
+  min-height: 680px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -635,7 +632,7 @@ body, html {
 }
 .od-step-line {
   width: 7px;
-  height: 105px; /* much more space between each number */
+  height: 105px;
   background: linear-gradient(to bottom, #a9b6d9 0%, #dde2ee 100%);
   margin: 0 auto;
   z-index: 1;
@@ -757,7 +754,7 @@ body, html {
   }
 }
 
-/* --- NEW SECTION: Integration & Compliance --- */
+/* --- Integration & Compliance --- */
 .timeoffice-integration-compliance-section {
   margin-top: 3.5rem;
   margin-bottom: 2.5rem;
@@ -930,7 +927,6 @@ body, html {
   }
 }
 
-/* --- UNIFORM FLEX ROW FOR ALL INFO+IMAGE SECTIONS --- */
 .to-flex-row {
   display: flex;
   align-items: stretch;

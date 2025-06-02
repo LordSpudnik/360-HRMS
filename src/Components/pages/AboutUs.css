@@ -55,7 +55,6 @@
   z-index: 2;
 }
 
-/* Ensure Navbar sits just below topbar (topbar height = 40px) */
 .navbar {
   position: sticky;
   top: 40px;
@@ -229,12 +228,12 @@
   margin-bottom: 0.1rem;
 }
 
-/* Why CAFS Section */
-.about-why-cafs {
+/* Why Us Section */
+.about-why-us {
   margin-top: 2.5rem;
   margin-bottom: 1.5rem;
 }
-.about-why-cafs h2 {
+.about-why-us h2 {
   color: #242273;
   font-size: 1.5rem;
   margin-bottom: 1.1rem;
@@ -279,7 +278,6 @@
   transform: translateY(0);
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .about-hero {
     flex-direction: column;

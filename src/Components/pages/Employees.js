@@ -13,7 +13,6 @@ import SearchBar from "./SearchBar";
 import performanceImg from "./assets/imgs/employees_performance.png";
 import complianceImg from "./assets/imgs/employees_compliance.png";
 
-// Scroll animation hook (same logic as homepage)
 function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
@@ -224,7 +223,6 @@ export default function Employees() {
           </div>
 
           <div className="emp-monitoring-row">
-            {/* Compliance: card left, image right */}
             <div className="emp-monitoring-text-col">
               <div className="emp-monitoring-title">Compliance and Confidentiality</div>
               <div className="emp-monitoring-content">

@@ -273,14 +273,14 @@ body, html {
   background: #f7f9fa;
   border-radius: 16px;
   overflow: hidden;
-  font-size: 0.99rem; /* smaller font */
+  font-size: 0.99rem;
   box-shadow: 0 3px 18px 0 rgba(100,110,140,0.06);
   min-width: 900px;
 }
 
 .employee-table th, .employee-table td {
   border: 1px solid #e3e5ef;
-  padding: 0.7rem 0.6rem; /* slightly smaller padding */
+  padding: 0.7rem 0.6rem;
   text-align: left;
   vertical-align: top;
 }
@@ -288,7 +288,7 @@ body, html {
 .employee-table th {
   background: #e4e7ee;
   color: #241c64;
-  font-size: 1.13rem; /* smaller heading */
+  font-size: 1.13rem;
   font-weight: bold;
   font-family: 'Georgia', 'Times New Roman', Times, serif;
   letter-spacing: 0.01em;

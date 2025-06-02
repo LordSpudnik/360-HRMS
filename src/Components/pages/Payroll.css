@@ -183,7 +183,6 @@ body, html {
   margin-bottom: 0.2rem;
 }
 
-/* Right-hand image column */
 .payroll-img-col {
   flex: 1;
   display: flex;
@@ -203,8 +202,6 @@ body, html {
   from { transform: translateY(0);}
   to { transform: translateY(-18px);}
 }
-
-/* ...existing styles above... */
 
 /* --- Salary Structure Section --- */
 .salary-structure-section {
@@ -379,7 +376,6 @@ body, html {
   color: #1f1d4c;
 }
 
-/* Responsive adjustments */
 @media (max-width: 1100px) {
   .salary-structure-section {
     min-height: 370px;
@@ -458,7 +454,7 @@ body, html {
   }
 }
 
-/* --- Salary Deductions Section (same layout as salary structure, reversed image/timeline) --- */
+/* --- Salary Deductions Section --- */
 
 .salary-deductions-img-col {
   margin-top: 100px;
@@ -495,7 +491,7 @@ body, html {
   pointer-events: auto;
 }
 
-/* --- Salary Table Section (matches style/layout of structure/deductions) --- */
+/* --- Salary Table Section --- */
 
 .salary-table-col {
   flex: 2.2;
@@ -672,7 +668,6 @@ body, html {
   border-radius: 8px;
 }
 
-/* Hide empty step columns for correct alignment */
 .payroll-step-col-left:empty,
 .payroll-step-col-right:empty {
   display: block;
@@ -797,7 +792,6 @@ body, html {
     box-shadow 0.32s cubic-bezier(.18,.75,.38,1.08),
     border-color 0.28s;
   cursor: pointer;
-  /* for consistent pointer and animation */
 }
 
 /* --- Hover effect: match candidate tracking cards --- */
@@ -860,7 +854,6 @@ body, html {
   min-height: 200px;
 }
 
-/* Responsive */
 @media (max-width: 1100px) {
   .payroll-tracking-section {
     min-height: 370px;

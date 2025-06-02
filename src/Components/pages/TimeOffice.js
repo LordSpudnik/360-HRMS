@@ -19,11 +19,6 @@ import payrollImg from "./assets/imgs/time office_payroll.png";
 import complianceImg from "./assets/imgs/time office_compliance.png";
 import Footer from "./Footer";
 
-/**
- * Ensures all .scroll-animate elements are visible ("scrolled") if initially in view,
- * and when the page gains focus (e.g., after tab switch).
- * Fixes: Content not appearing after tab switch until scroll.
- */
 function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
@@ -45,14 +40,11 @@ function useScrollAnimation() {
       }
     );
 
-    // Observe all .scroll-animate elements
     elements.forEach((el) => observer.observe(el));
 
-    // Helper: checks all .scroll-animate elements and adds .scrolled if in view
     const ensureVisibleElements = () => {
       elements.forEach((el) => {
         const rect = el.getBoundingClientRect();
-        // If any part of element is visible in viewport, add scrolled
         if (
           rect.bottom > 0 &&
           rect.top < (window.innerHeight || document.documentElement.clientHeight)
@@ -62,10 +54,8 @@ function useScrollAnimation() {
       });
     };
 
-    // On mount, ensure visible elements are activated
     ensureVisibleElements();
 
-    // On window focus (e.g. tab switch), ensure visible elements are activated
     window.addEventListener("focus", ensureVisibleElements);
 
     return () => {
@@ -106,7 +96,6 @@ export default function TimeOffice() {
         </div>
       )}
 
-      {/* Animate ONLY the main content */}
       <motion.div
         className="timeoffice-bg"
         initial={{ opacity: 0, x: 40 }}
@@ -178,7 +167,6 @@ export default function TimeOffice() {
 
           {/* --- SECTION: Late Arrival & Overtime Details --- */}
           <div className="timeoffice-lateovertime-section">
-            {/* Late Arrival and Early Leaving: TEXT LEFT, IMAGE RIGHT */}
             <div className="to-flex-row scroll-animate">
               <div className="to-text-card1">
                 <div className="to-title">Late Arrival and Early Leaving</div>

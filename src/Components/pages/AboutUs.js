@@ -16,7 +16,6 @@ import {
 import { IoLogoFlickr, IoLogoWhatsapp } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
 
-// Example illustration images (replace with your own or URLs if needed)
 import aboutHero from "./assets/imgs/aboutUs.png";
 import missionIcon from "./assets/icons/consistent.png";
 import visionIcon from "./assets/icons/vision.png";
@@ -184,7 +183,7 @@ export default function AboutUs() {
           </div>
         </section>
 
-        <section className="about-why-cafs scroll-animate">
+        <section className="about-why-us scroll-animate">
           <h2>Why Choose 360 HRMS?</h2>
           <ul className="about-why-list">
             <li>

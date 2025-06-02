@@ -13,7 +13,7 @@ body, html {
   background: linear-gradient(to bottom, #fff 0%, #f7f8fa 100%);
 }
 
-/* Topbar & Navbar (reuse from homepage/employees) */
+/* Topbar & Navbar */
 .topbar {
   background-color: #d3d7de;
   color: #000;

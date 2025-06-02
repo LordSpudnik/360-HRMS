@@ -422,7 +422,7 @@ body, html {
   min-height: 330px;
   margin: 0 auto 0 0;
   display: flex;
-  justify-content: center; /* <---- center horizontally */
+  justify-content: center;
   align-items: flex-start;
   padding: 0;
   background: none;
@@ -438,7 +438,7 @@ body, html {
   transform: translateY(0);
 }
 .leave-authority-card {
-  margin: 2.4rem 0 0 0; /* <--- Remove left margin for true centering */
+  margin: 2.4rem 0 0 0;
   background: #dde2ee;
   border: 2px solid #4e51a8;
   border-radius: 1rem;
@@ -482,7 +482,6 @@ body, html {
 }
 
 @media (max-width: 1050px) {
-  /* ...other responsive styles... */
   .leave-authority-section {
     justify-content: center;
     min-height: unset;

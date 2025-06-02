@@ -3,7 +3,6 @@ import React, { useState, useRef, useEffect } from "react";
 const HIGHLIGHT_CLASS = "search-highlight";
 const CURRENT_CLASS = "current-highlight";
 
-// Helper: check if element is in viewport
 function isElementInViewport(el) {
   if (!el) return false;
   const rect = el.getBoundingClientRect();
@@ -13,14 +12,12 @@ function isElementInViewport(el) {
   );
 }
 
-// Highlight all matches, return an array of mark elements
 function highlightText(root, word) {
   if (!word) return [];
   const regex = new RegExp(`(${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, "gi");
   let occurences = [];
 
   function traverse(node) {
-    // Skip navigation bars, top bars, and footers
     if (
       node.nodeType === 1 &&
       (
@@ -70,7 +67,6 @@ function highlightText(root, word) {
   return occurences;
 }
 
-// Remove all highlights in root
 function removeHighlights(root) {
   const marks = root.querySelectorAll(`mark.${HIGHLIGHT_CLASS}`);
   marks.forEach((mark) => {
@@ -101,7 +97,6 @@ const SearchBar = ({ onClose }) => {
     inputRef.current?.focus();
   }, []);
 
-  // Only scroll if item is not already in viewport
   useEffect(() => {
     if (total > 0 && occurenceRefs.current.length) {
       occurenceRefs.current.forEach((m, idx) => {

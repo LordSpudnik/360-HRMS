@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Footer.css";
-import Logo from "./assets/icons/logo.png"; // Adjust as needed
+import Logo from "./assets/icons/logo.png";
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -9,7 +9,6 @@ export default function Footer() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show button after scrolling 180px (adjust as desired)
       setShowTop(window.scrollY > 180);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });

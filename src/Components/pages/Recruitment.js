@@ -13,7 +13,6 @@ import { IoLogoFlickr, IoLogoWhatsapp } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
 import Footer from "./Footer";
 
-// Scroll animation hook (same logic as homepage/employees)
 function useScrollAnimation() {
   useEffect(() => {
     const elements = document.querySelectorAll('.scroll-animate');
@@ -44,7 +43,6 @@ export default function Recruitment() {
   useScrollAnimation();
   const [showSearch, setShowSearch] = useState(false);
 
-  // Helper for arrow between cards
   const ArrowRightIcon = () => (
     <span className="recruitment-arrow-icon"><FaArrowRight /></span>
   );
@@ -84,7 +82,6 @@ export default function Recruitment() {
         </div>
       )}
 
-      {/* === Animate only the main content, not navbar/topbar/footer === */}
       <motion.div
         className="recruitment-bg"
         initial={{ opacity: 0, x: 40 }}

@@ -11,7 +11,7 @@ body, html {
   overflow-x: hidden;
 }
 
-/* Topbar styling (reused from Employees.css) */
+/* Top bar styling */
 .topbar {
   background-color: #d3d7de;
   color: #000;
@@ -150,8 +150,8 @@ body, html {
 }
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #4fa6ff; /* light blue */
-  background: #eaf6ff;   /* very light blue */
+  border-color: #4fa6ff;
+  background: #eaf6ff; 
   box-shadow: 0 0 0 2px #4fa6ff33;
 }
 .contact-submit-btn {
@@ -183,7 +183,6 @@ body, html {
   transform: translateY(-2px) scale(1.04);
 }
 
-/* --- Success Animation --- */
 .contact-success {
   text-align: center;
   color: #1c7c54;
