@@ -66,6 +66,40 @@ const reviews = [
   },
 ];
 
+// 3 new "Who We Are" features
+const whoWeAreFeatures = [
+  {
+    icon: <span role="img" aria-label="target">🎯</span>,
+    title: "Reliable and Efficient",
+    desc: "Professionals who consistently deliver high-quality work on time with precision and accountability."
+  },
+  {
+    icon: <span role="img" aria-label="stability">⚖️</span>,
+    title: "Stability",
+    desc: "Maintaining the same relationship manager over time ensures consistency and fosters trust, supported by strong employee retention and effective HR practices."
+  },
+  {
+    icon: <span role="img" aria-label="client-focused">🤝</span>,
+    title: "Client-Focused",
+    desc: "A client-focused culture is fostered through HR-driven training in customer service and empathy, ensuring employees consistently prioritize client needs and address concerns effectively."
+  },
+  {
+    icon: <span role="img" aria-label="innovation">💡</span>,
+    title: "Innovation-Driven",
+    desc: "We embrace modern technology and continuous improvement, delivering creative solutions that keep clients ahead in a fast-changing world."
+  },
+  {
+    icon: <span role="img" aria-label="integrity">🛡️</span>,
+    title: "Integrity & Trust",
+    desc: "Honesty and transparency are at the heart of our business, building long-term relationships based on trust and ethical conduct."
+  },
+  {
+    icon: <span role="img" aria-label="support">🧑‍💼</span>,
+    title: "Responsive Support",
+    desc: "Our team provides prompt, attentive support to every client, ensuring quick resolutions and continuous satisfaction at all times."
+  }
+];
+
 const Homepage = () => {
   useScrollAnimation();
   const [showSearch, setShowSearch] = useState(false);
@@ -141,74 +175,50 @@ const Homepage = () => {
             our staff ensures a seamless and trustworthy experience at every step.
           </p>
         </div>
-        <div className="about-v2-content">
-          <div className="about-v2-features">
-            <div className="about-v2-feature">
+        <div className="about-v2-features-grid who-we-are-rows">
+          {whoWeAreFeatures.map((feature, idx) => (
+            <div className="about-v2-feature who-we-are-feature" key={idx}>
               <div className="about-v2-feature-circle">
-                <span role="img" aria-label="target">🎯</span>
+                {feature.icon}
               </div>
               <div>
-                <div className="about-v2-feature-title">Reliable and Efficient</div>
-                <div className="about-v2-feature-desc">
-                  Professionals who consistently deliver high-quality work on time with precision and accountability.
-                </div>
+                <div className="about-v2-feature-title">{feature.title}</div>
+                <div className="about-v2-feature-desc">{feature.desc}</div>
               </div>
             </div>
-            <div className="about-v2-feature">
-              <div className="about-v2-feature-circle">
-                <span role="img" aria-label="stability">⚖️</span>
+          ))}
+        </div>
+        {/* --- Proven by Numbers Card - 4 components in 1 row --- */}
+        <div className="about-v2-stats-card about-v2-stats-modern about-v2-stats-below">
+          <div className="about-v2-stats-title about-v2-stats-modern-title">Proven by Numbers</div>
+          <div className="about-v2-stats-modern-grid stats-four-in-row">
+            <div className="about-v2-stats-modern-item">
+              <div className="about-v2-stats-modern-icon">⏳</div>
+              <div className="about-v2-stats-modern-value">
+                <CountUpOnView end={5} />
               </div>
-              <div>
-                <div className="about-v2-feature-title">Stability</div>
-                <div className="about-v2-feature-desc">
-                  Maintaining the same relationship manager over time ensures consistency and fosters trust, supported by strong employee retention and effective HR practices.
-                </div>
-              </div>
+              <div className="about-v2-stats-modern-label">Years of Experience</div>
             </div>
-            <div className="about-v2-feature">
-              <div className="about-v2-feature-circle">
-                <span role="img" aria-label="client-focused">🤝</span>
+            <div className="about-v2-stats-modern-item">
+              <div className="about-v2-stats-modern-icon">📁</div>
+              <div className="about-v2-stats-modern-value">
+                <CountUpOnView end={200} suffix="+" />
               </div>
-              <div>
-                <div className="about-v2-feature-title">Client-Focused</div>
-                <div className="about-v2-feature-desc">
-                  A client-focused culture is fostered through HR-driven training in customer service and empathy, ensuring employees consistently prioritize client needs and address concerns effectively.
-                </div>
-              </div>
+              <div className="about-v2-stats-modern-label">Total Projects</div>
             </div>
-          </div>
-          {/* --- Improved Proven by Numbers Card --- */}
-          <div className="about-v2-stats-card about-v2-stats-modern">
-            <div className="about-v2-stats-title">Proven by Numbers</div>
-            <div className="about-v2-stats-modern-grid">
-              <div className="about-v2-stats-modern-item">
-                <div className="about-v2-stats-modern-icon">⏳</div>
-                <div className="about-v2-stats-modern-value">
-                  <CountUpOnView end={5} />
-                </div>
-                <div className="about-v2-stats-modern-label">Years of Experience</div>
+            <div className="about-v2-stats-modern-item">
+              <div className="about-v2-stats-modern-icon">🆕</div>
+              <div className="about-v2-stats-modern-value">
+                <CountUpOnView end={10} suffix="+" />
               </div>
-              <div className="about-v2-stats-modern-item">
-                <div className="about-v2-stats-modern-icon">📁</div>
-                <div className="about-v2-stats-modern-value">
-                  <CountUpOnView end={200} suffix="+" />
-                </div>
-                <div className="about-v2-stats-modern-label">Total Projects</div>
+              <div className="about-v2-stats-modern-label">New Client Every Year</div>
+            </div>
+            <div className="about-v2-stats-modern-item">
+              <div className="about-v2-stats-modern-icon">😊</div>
+              <div className="about-v2-stats-modern-value">
+                <CountUpOnView end={50} suffix="+" />
               </div>
-              <div className="about-v2-stats-modern-item">
-                <div className="about-v2-stats-modern-icon">🆕</div>
-                <div className="about-v2-stats-modern-value">
-                  <CountUpOnView end={10} suffix="+" />
-                </div>
-                <div className="about-v2-stats-modern-label">New Client Every Year</div>
-              </div>
-              <div className="about-v2-stats-modern-item">
-                <div className="about-v2-stats-modern-icon">😊</div>
-                <div className="about-v2-stats-modern-value">
-                  <CountUpOnView end={50} suffix="+" />
-                </div>
-                <div className="about-v2-stats-modern-label">Happy Clients</div>
-              </div>
+              <div className="about-v2-stats-modern-label">Happy Clients</div>
             </div>
           </div>
         </div>
