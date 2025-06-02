@@ -148,7 +148,8 @@ body, html {
   outline: none;
   box-sizing: border-box;
 }
-.contact-form input:focus{
+.contact-form input:focus,
+.contact-form textarea:focus {
   border-color: #4fa6ff; /* light blue */
   background: #eaf6ff;   /* very light blue */
   box-shadow: 0 0 0 2px #4fa6ff33;
