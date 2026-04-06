@@ -83,3 +83,7 @@ It helps potential clients:
 ## Contributions
 
 As this is a demonstration and marketing website, contributions are limited to content, design, or UI improvements that enhance clarity and user experience.
+
+---
+
+> \*\*Developed by [LordSpudnik](https://github.com/LordSpudnik) as an internship project for Cafs Infotech.
